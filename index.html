@@ -15,7 +15,6 @@
 
   <style>
     :root{
-      /* Farbwelt Grün/Gold/Weiß (hell, edel) */
       --green-900:#0c3922;
       --green-800:#145437;
       --green-700:#1b6241;
@@ -34,7 +33,7 @@
       --radius-xl:30px;
       --radius:16px;
       --maxw:1140px;
-      --pad:clamp(20px,4vw,60px);
+      --pad:clamp(16px,4vw,60px);
       --shadow:0 16px 38px rgba(12,57,34,.14);
     }
 
@@ -44,127 +43,189 @@
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
       color:var(--ink);
       line-height:1.6;
-      /* Heller Gradient Hintergrund, mit dezentem Gold-Schimmer */
       background:
         radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.12) 0%, rgba(212,175,55,0) 60%),
         linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
     }
-    img{max-width:100%;display:block;border-radius:14px}
+    img{max-width:100%;display:block;border-radius:14px;height:auto}
     a{color:var(--green-700);text-decoration:none}
     a:hover{color:var(--green-600);text-decoration:underline}
 
     /* Header */
     header{
-      position:sticky;top:0;z-index:40;
+      position:sticky;top:0;z-index:100;
       background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86));
       border-bottom:1px solid var(--line);
       backdrop-filter:blur(8px);
     }
-    .nav{max-width:var(--maxw);margin:auto;padding:10px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .nav{
+      max-width:var(--maxw);margin:auto;
+      padding:10px var(--pad);
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
     .brand .namewrap{display:flex;flex-direction:column;line-height:1.1}
-    /* Wortmarke in Gold */
     .brand .wordmark{
       font-weight:900;letter-spacing:.04em;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-transform:uppercase;font-size:1.15rem;
+      text-transform:uppercase;font-size:clamp(1rem,2.4vw,1.15rem);
     }
     .brand .tagline{
       margin-top:2px;
-      font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.75rem;
+      font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .menu{display:flex;gap:18px;flex-wrap:wrap}
-    .menu a{color:var(--green-900);font-weight:700}
-    .menu a:hover{color:var(--green-700)}
 
-    /* Hero – mit Hintergrundbild `hochbau.jpg` + Overlay */
+    /* Hamburger */
+    .menu-toggle{
+      display:none;
+      appearance:none;border:none;background:transparent;padding:10px;margin:-6px;
+      border-radius:12px;cursor:pointer;
+    }
+    .menu-toggle:focus-visible{outline:2px solid var(--gold-500);outline-offset:2px}
+    .menu-toggle svg{width:28px;height:28px;stroke:var(--green-900);stroke-width:2.2;fill:none;stroke-linecap:round}
+    .menu-toggle[aria-expanded="true"] svg .line2{opacity:0}
+    .menu-toggle[aria-expanded="true"] svg .line1{transform:translateY(6px) rotate(45deg);transform-origin:12px 12px}
+    .menu-toggle[aria-expanded="true"] svg .line3{transform:translateY(-6px) rotate(-45deg);transform-origin:12px 12px}
+
+    .menu{
+      display:flex;gap:14px;flex-wrap:wrap;align-items:center
+    }
+    .menu a{color:var(--green-900);font-weight:700;padding:8px 10px;border-radius:10px}
+    .menu a:active{background:rgba(31,107,70,.08)}
+
+    /* Mobile Menü Zustand */
+    @media(max-width:860px){
+      .nav{gap:8px}
+      .menu-toggle{display:inline-grid;place-items:center}
+      .menu{
+        position:fixed;inset:auto var(--pad) auto var(--pad);
+        top:64px;
+        display:none;flex-direction:column;gap:8px;
+        background:#fff;border:1px solid var(--line);border-radius:16px;
+        padding:12px;box-shadow:0 18px 36px rgba(12,57,34,.16);
+      }
+      .menu.open{display:flex}
+    }
+
+    /* Hero – mit Hintergrundbild */
     .hero{
-      position:relative;
-      color:#fff;
+      position:relative;color:#fff;
       background:
         linear-gradient(180deg, rgba(31,107,70,.72) 0%, rgba(18,88,55,.78) 60%, rgba(12,57,34,.84) 100%),
         url('img/hochbau.jpg');
       background-size:cover;background-position:center;
       border-bottom:1px solid var(--line);
     }
-    .hero-inner{max-width:var(--maxw);margin:auto;padding:56px var(--pad) 30px;display:grid;gap:10px}
-    .slogan{
-      color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;
-      font-size:.9rem
-    }
-    .hero h1{margin:8px 0 0;font-size:clamp(28px,4.8vw,48px);line-height:1.1}
+    .hero-inner{max-width:var(--maxw);margin:auto;padding:48px var(--pad) 22px;display:grid;gap:8px}
+    .slogan{color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
+    .hero h1{margin:6px 0 0;font-size:clamp(24px,6vw,48px);line-height:1.1}
 
-    /* Quick cards unter dem Banner (edler Look + Icons) */
-    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:16px var(--pad) 36px;display:grid;gap:14px}
+    /* Quick cards (+ edler Hover) */
+    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad) 30px;display:grid;gap:12px}
+    @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
+
     .q-card{
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.92), rgba(240,248,244,.9));
+      position:relative;overflow:hidden;
+      background:linear-gradient(145deg, rgba(255,255,255,.92), rgba(240,248,244,.9));
       border:1px solid var(--line);
       border-radius:18px;
       padding:16px 14px;
       display:flex;align-items:center;justify-content:center;gap:10px;
       font-weight:900;text-align:center;box-shadow:var(--shadow);
       color:var(--green-900);
+      transform:translateZ(0);
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease;
+      touch-action:manipulation;
     }
     .q-icon{
       width:26px;height:26px;flex:0 0 26px;
       stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
       filter:drop-shadow(0 6px 10px rgba(12,57,34,.12));
+      transition:transform .35s ease;
+    }
+    .q-card::before{
+      content:"";
+      position:absolute;inset:-20%;transform:skewX(-20deg) translateX(-120%);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+      opacity:.0;transition:transform .6s ease, opacity .6s ease;pointer-events:none;
+    }
+    @media (hover:hover){
+      .q-card:hover{
+        transform:translateY(-6px) scale(1.02);
+        box-shadow:0 22px 48px rgba(12,57,34,.18);
+        border-color:rgba(212,175,55,.45);
+        background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,248,244,.94));
+      }
+      .q-card:hover .q-icon{transform:scale(1.08)}
+      .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.9}
     }
 
     /* Sections */
-    section{padding:46px var(--pad)}
+    section{padding:36px var(--pad)}
+    @media(min-width:920px){section{padding:46px var(--pad)}}
     .container{max-width:var(--maxw);margin:auto}
-    .section-head{margin-bottom:16px}
-    .section-head span{display:inline-block;color:var(--green-700);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.9rem}
-    .section-head h2{margin:6px 0 0;font-size:clamp(22px,3.2vw,32px);color:var(--green-900)}
+    .section-head{margin-bottom:14px}
+    .section-head span{display:inline-block;color:var(--green-700);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.86rem}
+    .section-head h2{margin:6px 0 0;font-size:clamp(20px,5vw,32px);color:var(--green-900)}
 
     /* Portfolio */
-    .grid{display:grid;gap:18px}
-    @media(min-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .grid{display:grid;gap:16px}
+    @media(min-width:740px){.grid{grid-template-columns:repeat(2,1fr)}}
     .port-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
     .port-media{padding:8px;background:var(--surface-2);border-bottom:1px solid var(--line)}
     .tile{height:220px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+    @media(max-width:480px){.tile{height:180px}}
     .tile img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
     .port-card:hover .tile img{transform:scale(1.04)}
-    .port-body{padding:18px}
-    .port-body h3{margin:0 0 8px;font-size:1.2rem;display:flex;align-items:center;gap:10px}
+    .port-body{padding:16px}
+    .port-body h3{margin:0 0 8px;font-size:1.12rem;display:flex;align-items:center;gap:10px}
     .dot{width:10px;height:10px;border-radius:50%;background:var(--gold-500);box-shadow:0 0 0 4px rgba(212,175,55,.16)}
-    .port-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+    .port-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:.98rem}
     .port-badge{display:inline-block;margin-top:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#0f172a;font-weight:700}
 
-    /* Über uns – Hintergrundbild `team.jpg` + Overlay */
+    /* Über uns */
     #ueber-uns{
       background:
-        linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(226,242,234,.84) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.9) 0%, rgba(226,242,234,.86) 100%),
         url('img/team.jpg');
       background-size:cover;background-position:center;
     }
-    .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow)}
+    .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:20px;box-shadow:var(--shadow)}
+    @media(min-width:920px){.about-card{padding:24px}}
 
-    /* Kontakt – Hintergrundbild `telefon.jpg` + Overlay */
+    /* Kontakt */
     #kontakt{
       background:
-        linear-gradient(180deg, rgba(244,249,246,.92) 0%, rgba(226,242,234,.9) 70%, rgba(207,229,217,.92) 100%),
+        linear-gradient(180deg, rgba(244,249,246,.94) 0%, rgba(226,242,234,.9) 70%, rgba(207,229,217,.92) 100%),
         url('img/telefon.jpg');
       background-size:cover;background-position:center;
     }
-    .contact-grid{display:grid;gap:18px}
-    @media(min-width:980px){.contact-grid{grid-template-columns:1fr 1fr}}
-    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .contact-grid{display:grid;gap:14px}
+    @media(min-width:880px){.contact-grid{grid-template-columns:1fr 1fr;gap:18px}}
+    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
     label{font-weight:600}
-    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a;font-size:1rem}
     textarea{min-height:140px}
     .submit{display:inline-block;background:var(--green-700);color:#fff;font-weight:800;border:1px solid #1a5b3b;padding:12px 18px;border-radius:999px}
     .submit:hover{background:var(--green-600)}
+    .submit:active{transform:translateY(1px)}
 
     /* Footer */
     footer{border-top:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86))}
-    footer .container{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;color:rgba(12,57,34,.76);padding:18px;letter-spacing:.08em;text-transform:uppercase;font-size:.86rem}
+    footer .container{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;color:rgba(12,57,34,.76);padding:16px;letter-spacing:.08em;text-transform:uppercase;font-size:.84rem}
+
+    /* Bewegungen reduzieren */
+    @media (prefers-reduced-motion: reduce) {
+      *{scroll-behavior:auto !important}
+      .q-card, .q-icon, .tile img, .menu-toggle svg .line1, .menu-toggle svg .line2, .menu-toggle svg .line3 { transition: none !important }
+      .q-card::before{display:none !important}
+    }
   </style>
 
   <!-- Strukturierte Daten -->
@@ -194,42 +255,27 @@
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
     <a class="brand" href="#home" aria-label="Startseite Arslan GmbH">
-      <!-- Optimiertes Logo: großes goldenes A im Vordergrund, Ring im Hintergrund -->
-      <svg viewBox="0 0 200 200" width="64" height="64" xmlns="http://www.w3.org/2000/svg" aria-label="Arslan GmbH Logo" role="img" style="filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))">
+      <!-- Logo -->
+      <svg viewBox="0 0 200 200" width="58" height="58" xmlns="http://www.w3.org/2000/svg" aria-label="Arslan GmbH Logo" role="img" style="filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))">
         <defs>
-          <!-- Realistischer Goldverlauf -->
           <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#fff8cc"/>
             <stop offset="25%" stop-color="#f2d97c"/>
             <stop offset="60%" stop-color="#d4af37"/>
             <stop offset="100%" stop-color="#8c6b1a"/>
           </linearGradient>
-          <!-- Glanzlicht -->
           <radialGradient id="shine" cx="30%" cy="25%" r="65%">
             <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
             <stop offset="40%" stop-color="rgba(255,255,255,0.4)"/>
             <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
           </radialGradient>
-          <!-- Schatten -->
           <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="rgba(0,0,0,0.35)"/>
           </filter>
         </defs>
-        <!-- Ring (hinten) -->
-        <circle cx="100" cy="102" r="78"
-                fill="none"
-                stroke="url(#goldGradient)"
-                stroke-width="5"
-                opacity="0.8"
-                filter="url(#shadow)"/>
-        <!-- Großes A (vorn, ragt über den Ring) -->
+        <circle cx="100" cy="102" r="78" fill="none" stroke="url(#goldGradient)" stroke-width="5" opacity="0.8" filter="url(#shadow)"/>
         <path d="M100 25 L42 175 H68 L84 135 H116 L132 175 H158 L100 25 Z M100 60 L123 125 H77 L100 60 Z"
-              fill="url(#goldGradient)"
-              stroke="rgba(255,255,255,0.5)"
-              stroke-width="2"
-              stroke-linejoin="round"
-              filter="url(#shadow)"/>
-        <!-- Sanftes Lichtreflex -->
+              fill="url(#goldGradient)" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linejoin="round" filter="url(#shadow)"/>
         <ellipse cx="80" cy="55" rx="45" ry="30" fill="url(#shine)" />
       </svg>
       <div class="namewrap">
@@ -237,13 +283,23 @@
         <div class="tagline">- Meisterbetrieb -</div>
       </div>
     </a>
-    <div class="menu">
+
+    <!-- Hamburger Button -->
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-controls="mainmenu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path class="line1" d="M3 6h18" />
+        <path class="line2" d="M3 12h18" />
+        <path class="line3" d="M3 18h18" />
+      </svg>
+    </button>
+
+    <!-- Menü -->
+    <div id="mainmenu" class="menu" role="navigation">
       <a href="#home">Start</a>
       <a href="#portfolio">Leistungen</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#impressum">Impressum</a>
-      <!-- Datenschutz-Link im Banner entfernt -->
     </div>
   </nav>
 </header>
@@ -256,25 +312,21 @@
       <h1>Baudienstleistungen aus einer Hand</h1>
     </div>
 
-    <!-- 4 Cards direkt unter dem Banner (ohne Beschreibungen) -->
+    <!-- 4 Cards -->
     <div class="quick-cards">
       <div class="q-card">
-        <!-- Haus-Icon -->
         <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="m8 26 16-12 16 12"/><path d="M14 26v14h20V26"/><path d="M22 40V30h4v10"/></svg>
         Hoch- &amp; Innenbau
       </div>
       <div class="q-card">
-        <!-- Baum-Icon -->
         <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 26c0-6 4-10 8-10s8 4 8 10"/><path d="M10 30c3-6 10-12 14-12s11 6 14 12"/><path d="M24 30v10"/><path d="M18 40h12"/></svg>
         Außenanlagen
       </div>
       <div class="q-card">
-        <!-- Glanz / Funkeln -->
         <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8l3 8 8 3-8 3-3 8-3-8-8-3 8-3 3-8z"/><path d="M12 12l1.6 4 4 1.6-4 1.6L12 24l-1.6-4L6 17.6 10.4 16 12 12z"/><path d="m36 26 1.2 3.2 3.2 1.2-3.2 1.2L36 35l-1.2-3.2-3.2-1.2 3.2-1.2L36 26z"/></svg>
         Gebäudereinigung &amp; Objektbetreuung
       </div>
       <div class="q-card">
-        <!-- Zahnrad -->
         <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true">
           <circle cx="24" cy="24" r="7"/><path d="M24 10v4M24 34v4M10 24h4M34 24h4M16 16l2.8 2.8M29.2 29.2 32 32M16 32l2.8-2.8M29.2 18.8 32 16"/>
         </svg>
@@ -292,10 +344,9 @@
       </div>
 
       <div class="grid">
-        <!-- 1) Hoch- & Innenbau -->
         <article class="port-card">
           <div class="port-media">
-            <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk"></div>
+            <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Hoch- &amp; Innenbau</h3>
@@ -308,10 +359,9 @@
           </div>
         </article>
 
-        <!-- 2) Außenanlagen -->
         <article class="port-card">
           <div class="port-media">
-            <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau"></div>
+            <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Außenanlagen</h3>
@@ -323,10 +373,9 @@
           </div>
         </article>
 
-        <!-- 3) Gebäudereinigung & Objektbetreuung -->
         <article class="port-card">
           <div class="port-media">
-            <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung"></div>
+            <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Gebäudereinigung &amp; Objektbetreuung</h3>
@@ -340,10 +389,9 @@
           </div>
         </article>
 
-        <!-- 4) Metall & Schweißen -->
         <article class="port-card">
           <div class="port-media">
-            <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger"></div>
+            <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Metall &amp; Schweißen</h3>
@@ -359,7 +407,7 @@
     </div>
   </section>
 
-  <!-- Über uns – Fließtext, ohne Bullets -->
+  <!-- Über uns -->
   <section id="ueber-uns">
     <div class="container">
       <div class="section-head">
@@ -387,7 +435,6 @@
       </div>
 
       <div class="contact-grid">
-        <!-- Kontaktdaten (hervorgehoben) -->
         <div class="card" style="border-width:2px;border-color:#dfe7e3">
           <p><strong>Arslan GmbH</strong><br>
           Werner-Heisenberg Str. 2<br>
@@ -400,7 +447,6 @@
           </p>
         </div>
 
-        <!-- Formular (dezent) -->
         <div class="card">
           <h3 style="margin-top:0">Kontaktformular</h3>
           <form class="form" action="mailto:arslangmbh@gmx.net" method="post" enctype="text/plain">
@@ -470,7 +516,41 @@
 </footer>
 
 <script>
+  // Jahr im Footer
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Mobile Menü Logik
+  const btn = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('mainmenu');
+
+  function setMenu(open) {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    menu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : ''; // Scroll sperren, wenn offen
+  }
+
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    setMenu(!open);
+  });
+
+  // Schließt das Menü bei ESC oder Link-Klick
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      btn.focus();
+    }
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // Schließt bei Resize auf Desktop
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    const now = window.innerWidth;
+    if (lastW <= 860 && now > 860) setMenu(false);
+    lastW = now;
+  });
 </script>
 </body>
 </html>
