@@ -7,7 +7,7 @@
   <meta name="description" content="Arslan GmbH: Hoch- & Innenbau, Außenanlagen, Gebäudereinigung & Objektbetreuung, Metall & Schweißen – Meisterbetrieb seit über 20 Jahren.">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Arslan GmbH – Baudienstleistungen aus einer Hand">
-  <meta property="og:description" content="Meisterbetrieb seit über 20 Jahren – präzise, sauber, termintreu.">
+  <meta property="og:description" content="Meisterbetrieb seit über 20 Jahren – zuverlässig, sauber, termintreu.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:url" content="https://arslan-gmbh.de">
@@ -15,13 +15,14 @@
 
   <style>
     :root{
-      /* Farbwelt Grün/Gold/Weiß (hell) */
+      /* Farbwelt Grün/Gold/Weiß (hell, edel) */
       --green-900:#0c3922;
       --green-800:#145437;
       --green-700:#1b6241;
       --green-600:#1f6b46;
-      --green-300:#7fb59a;
-      --green-100:#eef6f2;
+      --green-050:#f4faf6;
+      --gold-800:#a77f2d;
+      --gold-700:#987633;
       --gold-600:#c39a2e;
       --gold-500:#d4af37;
       --gold-300:#e6c976;
@@ -30,7 +31,7 @@
       --line:#e2ebe4;
       --surface:#ffffff;
       --surface-2:#f7faf6;
-      --radius-lg:28px;
+      --radius-xl:30px;
       --radius:16px;
       --maxw:1140px;
       --pad:clamp(20px,4vw,60px);
@@ -43,7 +44,7 @@
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
       color:var(--ink);
       line-height:1.6;
-      /* Heller Gradient Hintergrund, mit leichtem Gold-Schimmer */
+      /* Heller Gradient Hintergrund, mit dezentem Gold-Schimmer */
       background:
         radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.12) 0%, rgba(212,175,55,0) 60%),
         linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
@@ -59,36 +60,62 @@
       border-bottom:1px solid var(--line);
       backdrop-filter:blur(8px);
     }
-    .nav{max-width:var(--maxw);margin:auto;padding:12px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand svg{width:50px;height:50px;filter:drop-shadow(0 16px 26px rgba(0,0,0,.18))}
-    .brand .name{font-weight:800;letter-spacing:.3px;font-size:1.1rem}
+    .nav{max-width:var(--maxw);margin:auto;padding:10px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .brand .namewrap{display:flex;flex-direction:column;line-height:1.1}
+    /* Logo: Goldener Ring + goldenes A mit Hochglanz */
+    .brand svg{width:60px;height:60px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
+    .brand .wordmark{
+      font-weight:900;letter-spacing:.04em;
+      background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-transform:uppercase;font-size:1.15rem;
+    }
+    .brand .tagline{
+      margin-top:2px;
+      font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.75rem;
+      background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
     .menu{display:flex;gap:18px;flex-wrap:wrap}
-    .menu a{color:var(--green-900);font-weight:600}
+    .menu a{color:var(--green-900);font-weight:700}
+    .menu a:hover{color:var(--green-700)}
 
     /* Hero – mit Hintergrundbild `hochbau.jpg` + Overlay */
     .hero{
       position:relative;
       color:#fff;
       background:
-        linear-gradient(180deg, rgba(31,107,70,.70) 0%, rgba(18,88,55,.78) 60%, rgba(12,57,34,.82) 100%),
+        linear-gradient(180deg, rgba(31,107,70,.72) 0%, rgba(18,88,55,.78) 60%, rgba(12,57,34,.84) 100%),
         url('img/hochbau.jpg');
       background-size:cover;background-position:center;
       border-bottom:1px solid var(--line);
     }
-    .hero-inner{max-width:var(--maxw);margin:auto;padding:52px var(--pad) 28px;display:grid;gap:10px}
+    .hero-inner{max-width:var(--maxw);margin:auto;padding:56px var(--pad) 30px;display:grid;gap:10px}
     .slogan{
-      color:var(--gold-300);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-      font-size:.92rem
+      color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+      font-size:.9rem
     }
-    .hero h1{margin:6px 0 8px;font-size:clamp(28px,4.8vw,48px);line-height:1.12}
-    .buzz{display:flex;gap:10px;flex-wrap:wrap}
-    .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .hero h1{margin:8px 0 0;font-size:clamp(28px,4.8vw,48px);line-height:1.1}
 
-    /* Quick cards unter dem Banner */
-    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad) 30px;display:grid;gap:12px}
+    /* Quick cards unter dem Banner (edler Look + Icons) */
+    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:16px var(--pad) 36px;display:grid;gap:14px}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
-    .q-card{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:center;font-weight:800;text-align:center;box-shadow:var(--shadow)}
+    .q-card{
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.92), rgba(240,248,244,.9));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px 14px;
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      font-weight:900;text-align:center;box-shadow:var(--shadow);
+      color:var(--green-900);
+    }
+    .q-icon{
+      width:26px;height:26px;flex:0 0 26px;
+      stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
+      filter:drop-shadow(0 6px 10px rgba(12,57,34,.12));
+    }
 
     /* Sections */
     section{padding:46px var(--pad)}
@@ -102,7 +129,6 @@
     @media(min-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
     .port-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
     .port-media{padding:8px;background:var(--surface-2);border-bottom:1px solid var(--line)}
-    .port-media.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .tile{height:220px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
     .tile img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
     .port-card:hover .tile img{transform:scale(1.04)}
@@ -112,31 +138,25 @@
     .port-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
     .port-badge{display:inline-block;margin-top:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#0f172a;font-weight:700}
 
-    /* Über uns – Hintergrundbild `team.jpg` + soft Overlay */
+    /* Über uns – Hintergrundbild `team.jpg` + Overlay */
     #ueber-uns{
-      position:relative;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(226,242,234,.82) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(226,242,234,.84) 100%),
         url('img/team.jpg');
       background-size:cover;background-position:center;
     }
-    .about-grid{display:grid;gap:18px}
-    @media(min-width:980px){.about-grid{grid-template-columns:1fr 1fr}}
-    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
-    .facts{display:grid;gap:12px}
-    .fact{display:flex;gap:12px;align-items:center;border:1px dashed var(--line);background:#ffffff;border-radius:12px;padding:12px}
-    .fact svg{width:22px;height:22px;color:var(--green-700)}
-    .fact strong{display:block}
+    .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow)}
 
     /* Kontakt – Hintergrundbild `telefon.jpg` + Overlay */
     #kontakt{
       background:
-        linear-gradient(180deg, rgba(244,249,246,.90) 0%, rgba(226,242,234,.88) 70%, rgba(207,229,217,.90) 100%),
+        linear-gradient(180deg, rgba(244,249,246,.92) 0%, rgba(226,242,234,.9) 70%, rgba(207,229,217,.92) 100%),
         url('img/telefon.jpg');
       background-size:cover;background-position:center;
     }
     .contact-grid{display:grid;gap:18px}
     @media(min-width:980px){.contact-grid{grid-template-columns:1fr 1fr}}
+    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
     label{font-weight:600}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a}
     textarea{min-height:140px}
@@ -175,20 +195,38 @@
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
     <a class="brand" href="#home" aria-label="Startseite Arslan GmbH">
-      <!-- Neues Haus-Logo (Gold/Grün) -->
-      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+      <!-- Logo: Goldener Ring + goldenes A -->
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true" aria-label="Arslan Logo">
         <defs>
-          <linearGradient id="gold" x1="0" x2="1">
-            <stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#c39a2e"/>
+          <!-- glänzender Goldverlauf -->
+          <linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff3c6"/>
+            <stop offset="40%" stop-color="#e6c56f"/>
+            <stop offset="80%" stop-color="#caa24a"/>
+            <stop offset="100%" stop-color="#a77f2d"/>
           </linearGradient>
+          <linearGradient id="gA" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff7d6"/>
+            <stop offset="45%" stop-color="#efd58b"/>
+            <stop offset="100%" stop-color="#c59b3d"/>
+          </linearGradient>
+          <radialGradient id="shine" cx="30%" cy="20%" r="60%">
+            <stop offset="0%" stop-color="rgba(255,255,255,.9)"/>
+            <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
         </defs>
-        <!-- Goldener Ring/Schild -->
-        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#gold)" stroke-width="3.6"/>
-        <!-- Haus -->
-        <path d="M16 34l16-12 16 12v10H40V36H24v8H16V34z" fill="#1f6b46"/>
-        <rect x="28" y="38" width="8" height="6" fill="#ffffff"/>
+        <!-- Ring -->
+        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#gRing)" stroke-width="3.6"/>
+        <!-- A -->
+        <path d="M32 10 12 54h10l5.5-12h17L50 54h10L32 10Zm0 14 7.7 18H24.3L32 24Z"
+              fill="url(#gA)" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linejoin="round"/>
+        <!-- Glanz -->
+        <circle cx="22" cy="16" r="10" fill="url(#shine)" />
       </svg>
-      <div class="name">Arslan GmbH</div>
+      <div class="namewrap">
+        <div class="wordmark">Arslan GmbH</div>
+        <div class="tagline">- Meisterbetrieb -</div>
+      </div>
     </a>
     <div class="menu">
       <a href="#home">Start</a>
@@ -196,238 +234,229 @@
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#impressum">Impressum</a>
-      <a href="#datenschutz">Datenschutz</a>
+      <!-- Datenschutz-Link im Banner entfernt -->
     </div>
   </nav>
 </header>
 
-<!-- Hero -->
-<section id="home" class="hero">
-  <div class="hero-inner">
-    <span class="slogan">Meisterbetrieb seit über 20 Jahren</span>
-    <h1>Baudienstleistungen aus einer Hand</h1>
-    <div class="buzz">
-      <span class="chip">Präzise</span>
-      <span class="chip">Sauber</span>
-      <span class="chip">Termintreu</span>
-    </div>
-  </div>
-
-  <!-- 4 Cards direkt unter dem Banner (ohne Beschreibungen) -->
-  <div class="quick-cards">
-    <div class="q-card">Hoch- &amp; Innenbau</div>
-    <div class="q-card">Außenanlagen</div>
-    <div class="q-card">Gebäudereinigung&nbsp;&amp; Objektbetreuung</div>
-    <div class="q-card">Metall&nbsp;&amp; Schweißen</div>
-  </div>
-</section>
-
-<!-- Leistungsportfolio – Reihenfolge & Bildzuordnung nach Wunsch -->
-<section id="portfolio">
-  <div class="container">
-    <div class="section-head">
-      <span>Leistungsportfolio</span>
-      <h2>Vier starke Kompetenzfelder</h2>
+<main>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <span class="slogan">Meisterbetrieb seit über 20 Jahren</span>
+      <h1>Baudienstleistungen aus einer Hand</h1>
     </div>
 
-    <div class="grid">
-      <!-- 1) Hoch- & Innenbau: innenausbau (Hauptvisual), optional zweites Bild weggelassen für Klarheit -->
-      <article class="port-card">
-        <div class="port-media">
-          <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk"></div>
-        </div>
-        <div class="port-body">
-          <h3><span class="dot" aria-hidden="true"></span> Hoch- &amp; Innenbau</h3>
-          <ul>
-            <li>Hochbau, Rohbau &amp; bauliche Erweiterungen</li>
-            <li>Innenausbau, Renovierung &amp; Modernisierung</li>
-            <li>Trockenbau, Boden- und Malerarbeiten</li>
-          </ul>
-          <span class="port-badge">Planung · Ausführung · Abnahme</span>
-        </div>
-      </article>
-
-      <!-- 2) Außenanlagen: nur gartenbau -->
-      <article class="port-card">
-        <div class="port-media">
-          <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau"></div>
-        </div>
-        <div class="port-body">
-          <h3><span class="dot" aria-hidden="true"></span> Außenanlagen</h3>
-          <ul>
-            <li>Garten- &amp; Landschaftsbau sowie Pflegekonzepte</li>
-            <li>Pflaster-, Wege- &amp; Terrassenarbeiten</li>
-          </ul>
-          <span class="port-badge">Außenräume funktional &amp; schön</span>
-        </div>
-      </article>
-
-      <!-- 3) Gebäudereinigung & Objektbetreuung: nur gebaeudereinigung -->
-      <article class="port-card">
-        <div class="port-media">
-          <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung"></div>
-        </div>
-        <div class="port-body">
-          <h3><span class="dot" aria-hidden="true"></span> Gebäudereinigung &amp; Objektbetreuung</h3>
-          <ul>
-            <li>Baureinigung &amp; Endreinigung</li>
-            <li>Unterhaltsreinigung von Büro &amp; Industrie</li>
-            <li>Glas- &amp; Fassadenreinigung</li>
-            <li>Hausmeister- &amp; Technikservice</li>
-          </ul>
-          <span class="port-badge">Sauberkeit · Sicherheit · Werterhalt</span>
-        </div>
-      </article>
-
-      <!-- 4) Metall & Schweißen: nur schweissen -->
-      <article class="port-card">
-        <div class="port-media">
-          <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger"></div>
-        </div>
-        <div class="port-body">
-          <h3><span class="dot" aria-hidden="true"></span> Metall &amp; Schweißen</h3>
-          <ul>
-            <li>Schweißer- &amp; Isolierarbeiten für Industrieanlagen</li>
-            <li>Schlosserei, Metallbau &amp; Sonderkonstruktionen</li>
-            <li>Gleisverlegen und Instandhaltung</li>
-          </ul>
-          <span class="port-badge">Zertifizierte Fachkräfte</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Über uns – nur fette Zeilen, mit Hintergrundbild team.jpg -->
-<section id="ueber-uns">
-  <div class="container">
-    <div class="section-head">
-      <span>Über uns</span>
-      <h2>Verantwortung &amp; Vertrauen im Rhein-Main-Gebiet</h2>
-    </div>
-
-    <div class="about-grid">
-      <div class="card">
-        <div class="facts">
-          <div class="fact">
-            <!-- Pokal -->
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3h14v3h2a3 3 0 0 1-3 3h-1.1A6.002 6.002 0 0 1 13 12.9V15h3v2H8v-2h3v-2.1A6.002 6.002 0 0 1 7.1 9H6A3 3 0 0 1 3 6h2V3zm2.1 6h9.8A4 4 0 0 0 21 7V6h-2V5H5v1H3v1a4 4 0 0 0 4.1 2z"/></svg>
-            <strong>Meisterbetrieb seit über 20 Jahren</strong>
-          </div>
-          <div class="fact">
-            <!-- Team -->
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 9v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2Z"/></svg>
-            <strong>Interdisziplinäre Teams</strong>
-          </div>
-          <div class="fact">
-            <!-- Kalender/Haken -->
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v3H2V6a2 2 0 0 1 2-2h3V2Zm15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8Zm-6.6 3.2-3.9 3.9-1.9-1.9-1.4 1.4 3.3 3.3 5.3-5.3Z"/></svg>
-            <strong>Termintreue &amp; Qualität</strong>
-          </div>
-        </div>
+    <!-- 4 Cards direkt unter dem Banner (ohne Beschreibungen) -->
+    <div class="quick-cards">
+      <div class="q-card">
+        <!-- Haus-Icon -->
+        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="m8 26 16-12 16 12"/><path d="M14 26v14h20V26"/><path d="M22 40V30h4v10"/></svg>
+        Hoch- &amp; Innenbau
       </div>
-
-      <div class="card" style="padding:0;overflow:hidden">
-        <img src="img/team.jpg" alt="Unser Team – Planung und Koordination" style="border-radius:18px;display:block">
+      <div class="q-card">
+        <!-- Baum-Icon -->
+        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 26c0-6 4-10 8-10s8 4 8 10"/><path d="M10 30c3-6 10-12 14-12s11 6 14 12"/><path d="M24 30v10"/><path d="M18 40h12"/></svg>
+        Außenanlagen
+      </div>
+      <div class="q-card">
+        <!-- Glanz / Funkeln -->
+        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8l3 8 8 3-8 3-3 8-3-8-8-3 8-3 3-8z"/><path d="M12 12l1.6 4 4 1.6-4 1.6L12 24l-1.6-4L6 17.6 10.4 16 12 12z"/><path d="m36 26 1.2 3.2 3.2 1.2-3.2 1.2L36 35l-1.2-3.2-3.2-1.2 3.2-1.2L36 26z"/></svg>
+        Gebäudereinigung &amp; Objektbetreuung
+      </div>
+      <div class="q-card">
+        <!-- Zahnrad -->
+        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="7"/><path d="M24 10v4M24 34v4M10 24h4M34 24h4M16 16l2.8 2.8M29.2 29.2 32 32M16 32l2.8-2.8M29.2 18.8 32 16"/>
+        </svg>
+        Metall &amp; Schweißen
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Kontakt – Kontaktdaten hervorgehoben, Formular dezent -->
-<section id="kontakt">
-  <div class="container">
-    <div class="section-head">
-      <span>Kontakt</span>
-      <h2>Direkter Draht zur Projektplanung</h2>
+  <!-- Leistungsportfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-head">
+        <span>Leistungsportfolio</span>
+        <h2>Kompetenzfelder für anspruchsvolle Projekte</h2>
+      </div>
+
+      <div class="grid">
+        <!-- 1) Hoch- & Innenbau -->
+        <article class="port-card">
+          <div class="port-media">
+            <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk"></div>
+          </div>
+          <div class="port-body">
+            <h3><span class="dot" aria-hidden="true"></span> Hoch- &amp; Innenbau</h3>
+            <ul>
+              <li>Hochbau, Rohbau &amp; bauliche Erweiterungen</li>
+              <li>Innenausbau, Renovierung &amp; Modernisierung</li>
+              <li>Trockenbau, Boden- und Malerarbeiten</li>
+            </ul>
+            <span class="port-badge">Planung · Ausführung · Abnahme</span>
+          </div>
+        </article>
+
+        <!-- 2) Außenanlagen -->
+        <article class="port-card">
+          <div class="port-media">
+            <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau"></div>
+          </div>
+          <div class="port-body">
+            <h3><span class="dot" aria-hidden="true"></span> Außenanlagen</h3>
+            <ul>
+              <li>Garten- &amp; Landschaftsbau sowie Pflegekonzepte</li>
+              <li>Pflaster-, Wege- &amp; Terrassenarbeiten</li>
+            </ul>
+            <span class="port-badge">Außenräume funktional &amp; schön</span>
+          </div>
+        </article>
+
+        <!-- 3) Gebäudereinigung & Objektbetreuung -->
+        <article class="port-card">
+          <div class="port-media">
+            <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung"></div>
+          </div>
+          <div class="port-body">
+            <h3><span class="dot" aria-hidden="true"></span> Gebäudereinigung &amp; Objektbetreuung</h3>
+            <ul>
+              <li>Baureinigung &amp; Endreinigung</li>
+              <li>Unterhaltsreinigung von Büro &amp; Industrie</li>
+              <li>Glas- &amp; Fassadenreinigung</li>
+              <li>Hausmeister- &amp; Technikservice</li>
+            </ul>
+            <span class="port-badge">Sauberkeit · Sicherheit · Werterhalt</span>
+          </div>
+        </article>
+
+        <!-- 4) Metall & Schweißen -->
+        <article class="port-card">
+          <div class="port-media">
+            <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger"></div>
+          </div>
+          <div class="port-body">
+            <h3><span class="dot" aria-hidden="true"></span> Metall &amp; Schweißen</h3>
+            <ul>
+              <li>Schweißer- &amp; Isolierarbeiten für Industrieanlagen</li>
+              <li>Schlosserei, Metallbau &amp; Sonderkonstruktionen</li>
+              <li>Gleisverlegen und Instandhaltung</li>
+            </ul>
+            <span class="port-badge">Zertifizierte Fachkräfte</span>
+          </div>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="contact-grid">
-      <!-- Kontaktdaten (hervorgehoben) -->
-      <div class="card" style="border-width:2px;border-color:#dfe7e3">
-        <p><strong>Arslan GmbH</strong><br>
-           Werner-Heisenberg Str. 2<br>
-           63263 Neu-Isenburg</p>
+  <!-- Über uns – Fließtext, ohne Bullets -->
+  <section id="ueber-uns">
+    <div class="container">
+      <div class="section-head">
+        <span>Über uns</span>
+        <h2>Kompetenz aus Meisterhand</h2>
+      </div>
+
+      <div class="about-card">
         <p>
-          Tel: <a href="tel:+4961028688109">06102&nbsp;8688109</a><br>
-          Fax: 06102&nbsp;8688108<br>
-          E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a><br>
-          <a href="https://maps.google.com/?q=Werner-Heisenberg-Str.-2,+63263+Neu-Isenburg" target="_blank" rel="noopener">Anfahrt auf Google&nbsp;Maps</a>
+          Seit über zwei Jahrzehnten führt die Arslan GmbH anspruchsvolle Bauvorhaben im Rhein-Main-Gebiet zuverlässig zum Ziel. 
+          Unsere Meisterteams verbinden Planung, Hoch- und Innenausbau, Außenanlagen sowie Gebäudereinigung & Objektbetreuung zu 
+          einem klaren Prozess: präzise abgestimmt, effizient koordiniert und sauber umgesetzt. Mit kurzen Wegen, festen 
+          Ansprechpartnern und dokumentierter Qualität schaffen wir Ergebnisse, die Werte erhalten und sichtbar steigern.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Formular (dezent) -->
-      <div class="card">
-        <h3 style="margin-top:0">Kontaktformular</h3>
-        <form class="form" action="mailto:arslangmbh@gmx.net" method="post" enctype="text/plain">
-          <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
-            <div>
-              <label for="fname">Vor- und Nachname</label>
-              <input id="fname" name="Name" required>
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-head">
+        <span>Kontakt</span>
+        <h2>Direkter Draht zur Projektplanung</h2>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Kontaktdaten (hervorgehoben) -->
+        <div class="card" style="border-width:2px;border-color:#dfe7e3">
+          <p><strong>Arslan GmbH</strong><br>
+          Werner-Heisenberg Str. 2<br>
+          63263 Neu-Isenburg</p>
+          <p>
+            Tel: <a href="tel:+4961028688109">06102&nbsp;8688109</a><br>
+            Fax: 06102&nbsp;8688108<br>
+            E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a><br>
+            <a href="https://maps.google.com/?q=Werner-Heisenberg-Str.-2,+63263+Neu-Isenburg" target="_blank" rel="noopener">Anfahrt auf Google&nbsp;Maps</a>
+          </p>
+        </div>
+
+        <!-- Formular (dezent) -->
+        <div class="card">
+          <h3 style="margin-top:0">Kontaktformular</h3>
+          <form class="form" action="mailto:arslangmbh@gmx.net" method="post" enctype="text/plain">
+            <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+              <div>
+                <label for="fname">Vor- und Nachname</label>
+                <input id="fname" name="Name" required>
+              </div>
+              <div>
+                <label for="fmail">E-Mail</label>
+                <input id="fmail" name="E-Mail" type="email" required>
+              </div>
             </div>
-            <div>
-              <label for="fmail">E-Mail</label>
-              <input id="fmail" name="E-Mail" type="email" required>
+            <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:12px">
+              <div>
+                <label for="fphone">Telefon (optional)</label>
+                <input id="fphone" name="Telefon" inputmode="tel">
+              </div>
+              <div>
+                <label for="fsubject">Betreff</label>
+                <input id="fsubject" name="Betreff" required>
+              </div>
             </div>
-          </div>
-          <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:12px">
-            <div>
-              <label for="fphone">Telefon (optional)</label>
-              <input id="fphone" name="Telefon" inputmode="tel">
+            <div style="margin-top:12px">
+              <label for="fmsg">Nachricht</label>
+              <textarea id="fmsg" name="Nachricht" required></textarea>
             </div>
-            <div>
-              <label for="fsubject">Betreff</label>
-              <input id="fsubject" name="Betreff" required>
-            </div>
-          </div>
-          <div style="margin-top:12px">
-            <label for="fmsg">Nachricht</label>
-            <textarea id="fmsg" name="Nachricht" required></textarea>
-          </div>
-          <button class="submit" type="submit" style="margin-top:10px">Nachricht senden</button>
-        </form>
+            <button class="submit" type="submit" style="margin-top:10px">Nachricht senden</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Impressum -->
-<section id="impressum">
-  <div class="container">
-    <div class="section-head">
-      <span>Impressum</span>
-      <h2>Rechtliche Angaben</h2>
-    </div>
-    <div class="card">
-      <p><strong>Arslan GmbH</strong><br>
-      Werner-Heisenberg Str. 2, 63263 Neu-Isenburg<br>
-      Tel: 06102-8688109 · Fax: 06102-8688108 · E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a></p>
+  <!-- Impressum (inkl. Datenschutz) -->
+  <section id="impressum">
+    <div class="container">
+      <div class="section-head">
+        <span>Impressum</span>
+        <h2>Rechtliche Angaben</h2>
+      </div>
+      <div class="card">
+        <p><strong>Arslan GmbH</strong><br>
+        Werner-Heisenberg Str. 2, 63263 Neu-Isenburg<br>
+        Tel: 06102-8688109 · Fax: 06102-8688108 · E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a></p>
 
-      <p><strong>Geschäftsführer:</strong> Johnny Eric Max Stuart<br>
-      <strong>Registergericht:</strong> Amtsgericht Offenbach am Main · <strong>HRB:</strong> 42992<br>
-      <strong>USt-IdNr.:</strong> DE256383679</p>
-    </div>
-  </div>
-</section>
+        <p><strong>Geschäftsführer:</strong> Johnny Eric Max Stuart<br>
+        <strong>Registergericht:</strong> Amtsgericht Offenbach am Main · <strong>HRB:</strong> 42992<br>
+        <strong>USt-IdNr.:</strong> DE256383679</p>
 
-<!-- Datenschutz (Kurzfassung) -->
-<section id="datenschutz">
-  <div class="container">
-    <div class="section-head">
-      <span>Datenschutz</span>
-      <h2>Datenschutzerklärung (Kurzfassung)</h2>
+        <hr style="border:none;border-top:1px solid var(--line);margin:10px 0 14px">
+
+        <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, 
+        Tel.: 06102-8688109, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>. 
+        Bei Kontaktaufnahme per E-Mail oder Formular verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage 
+        (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten 
+        erforderlich ist. Es werden keine Analyse-/Tracking-Cookies gesetzt.</p>
+      </div>
     </div>
-    <div class="card">
-      <p><strong>Verantwortlicher:</strong> Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>, Tel.: 06102-8688109.</p>
-      <p><strong>Kommunikation per E-Mail:</strong> Bei Kontaktaufnahme per E-Mail oder Formular (öffnet ggf. Ihr E-Mail-Programm) verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten erforderlich ist.</p>
-      <p><strong>Cookies / Tracking:</strong> Es werden keine Analyse-/Tracking-Cookies gesetzt; es findet kein Tracking statt.</p>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
   <div class="container">
-    © <span id="y"></span> Arslan GmbH · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
+    © <span id="y"></span> Arslan GmbH · <a href="#impressum">Impressum</a>
   </div>
 </footer>
 
