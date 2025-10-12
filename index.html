@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arslan GmbH – Baudienstleistungen aus einer Hand</title>
-  <meta name="description" content="Arslan GmbH: Hoch- &amp; Innenbau, Außenanlagen, Gebäudereinigung &amp; Objektbetreuung, Metall &amp; Schweißen – Meisterbetrieb seit über 20 Jahren.">
+  <meta name="description" content="Arslan GmbH: Hoch- & Innenbau, Außenanlagen, Gebäudereinigung & Objektbetreuung, Metall & Schweißen – Meisterbetrieb seit über 20 Jahren.">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Arslan GmbH – Baudienstleistungen aus einer Hand">
   <meta property="og:description" content="Meisterbetrieb seit über 20 Jahren – präzise, sauber, termintreu.">
@@ -12,673 +12,183 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:url" content="https://arslan-gmbh.de">
   <link rel="canonical" href="https://arslan-gmbh.de">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --green-950: #082617;
-      --green-900: #0c3922;
-      --green-800: #145437;
-      --green-600: #1f6b46;
-      --green-400: #5b9d7a;
-      --green-200: #cfe5d9;
-      --green-100: #e8f4ed;
-      --green-050: #f4faf6;
-      --gold-700: #987633;
-      --gold-500: #c6a652;
-      --gold-300: #e3c674;
-      --sand-100: #fdfbf6;
-      --sand-200: #f4eee3;
-      --white: #ffffff;
-      --radius-lg: 32px;
-      --radius: 22px;
-      --radius-sm: 16px;
-      --side-padding: clamp(24px, 5vw, 88px);
-      --font: "Cormorant Garamond", "Times New Roman", serif;
-      color-scheme: only light;
+    :root{
+      /* Farbwelt Grün/Gold/Weiß (hell) */
+      --green-900:#0c3922;
+      --green-800:#145437;
+      --green-700:#1b6241;
+      --green-600:#1f6b46;
+      --green-300:#7fb59a;
+      --green-100:#eef6f2;
+      --gold-600:#c39a2e;
+      --gold-500:#d4af37;
+      --gold-300:#e6c976;
+      --ink:#0f172a;
+      --muted:#46535e;
+      --line:#e2ebe4;
+      --surface:#ffffff;
+      --surface-2:#f7faf6;
+      --radius-lg:28px;
+      --radius:16px;
+      --maxw:1140px;
+      --pad:clamp(20px,4vw,60px);
+      --shadow:0 16px 38px rgba(12,57,34,.14);
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      font-family: var(--font);
-      font-size: 18px;
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.6;
+      /* Heller Gradient Hintergrund, mit leichtem Gold-Schimmer */
       background:
-        radial-gradient(140% 140% at 12% 0%, rgba(91, 157, 122, 0.12) 0%, rgba(12, 57, 34, 0) 55%),
-        radial-gradient(110% 120% at 88% 6%, rgba(47, 124, 84, 0.1) 0%, rgba(8, 38, 21, 0) 60%),
-        linear-gradient(180deg, var(--white) 0%, var(--green-050) 100%);
-      color: var(--green-900);
-      line-height: 1.7;
-      min-height: 100%;
+        radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.12) 0%, rgba(212,175,55,0) 60%),
+        linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
     }
+    img{max-width:100%;display:block;border-radius:14px}
+    a{color:var(--green-700);text-decoration:none}
+    a:hover{color:var(--green-600);text-decoration:underline}
 
-    img {
-      max-width: 100%;
-      display: block;
-      border-radius: var(--radius-sm);
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:40;
+      background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86));
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(8px);
     }
+    .nav{max-width:var(--maxw);margin:auto;padding:12px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{width:50px;height:50px;filter:drop-shadow(0 16px 26px rgba(0,0,0,.18))}
+    .brand .name{font-weight:800;letter-spacing:.3px;font-size:1.1rem}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{color:var(--green-900);font-weight:600}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--gold-300);
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* Hero – mit Hintergrundbild `hochbau.jpg` + Overlay */
+    .hero{
+      position:relative;
+      color:#fff;
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(226, 242, 234, 0.85));
-      border-bottom: 1px solid rgba(198, 229, 212, 0.68);
-      box-shadow: 0 16px 30px rgba(12, 57, 34, 0.14);
-      backdrop-filter: blur(10px);
+        linear-gradient(180deg, rgba(31,107,70,.70) 0%, rgba(18,88,55,.78) 60%, rgba(12,57,34,.82) 100%),
+        url('img/hochbau.jpg');
+      background-size:cover;background-position:center;
+      border-bottom:1px solid var(--line);
     }
-
-    .nav {
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px var(--side-padding);
-      gap: 24px;
+    .hero-inner{max-width:var(--maxw);margin:auto;padding:52px var(--pad) 28px;display:grid;gap:10px}
+    .slogan{
+      color:var(--gold-300);font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+      font-size:.92rem
     }
+    .hero h1{margin:6px 0 8px;font-size:clamp(28px,4.8vw,48px);line-height:1.12}
+    .buzz{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: clamp(18px, 2vw, 28px);
-      color: var(--gold-300);
-    }
+    /* Quick cards unter dem Banner */
+    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad) 30px;display:grid;gap:12px}
+    @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
+    .q-card{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:center;font-weight:800;text-align:center;box-shadow:var(--shadow)}
 
-    .brand svg {
-      width: clamp(86px, 8.8vw, 124px);
-      height: auto;
-      filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.28));
-    }
+    /* Sections */
+    section{padding:46px var(--pad)}
+    .container{max-width:var(--maxw);margin:auto}
+    .section-head{margin-bottom:16px}
+    .section-head span{display:inline-block;color:var(--green-700);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.9rem}
+    .section-head h2{margin:6px 0 0;font-size:clamp(22px,3.2vw,32px);color:var(--green-900)}
 
-    .wordmark {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      font-weight: 600;
-      font-size: clamp(1.3rem, 1.1vw + 1.2rem, 2rem);
-    }
+    /* Portfolio */
+    .grid{display:grid;gap:18px}
+    @media(min-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .port-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    .port-media{padding:8px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+    .port-media.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .tile{height:220px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+    .tile img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+    .port-card:hover .tile img{transform:scale(1.04)}
+    .port-body{padding:18px}
+    .port-body h3{margin:0 0 8px;font-size:1.2rem;display:flex;align-items:center;gap:10px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--gold-500);box-shadow:0 0 0 4px rgba(212,175,55,.16)}
+    .port-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+    .port-badge{display:inline-block;margin-top:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#0f172a;font-weight:700}
 
-    .wordmark-main {
-      display: block;
-    }
-
-    .wordmark-tagline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      letter-spacing: 0.32em;
-      font-size: clamp(0.7rem, 0.5vw + 0.72rem, 0.95rem);
-      color: var(--gold-300);
-    }
-
-    .wordmark-tagline::before,
-    .wordmark-tagline::after {
-      content: "";
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(198, 166, 82, 0), rgba(198, 166, 82, 0.7), rgba(198, 166, 82, 0));
-    }
-
-    .menu {
-      display: flex;
-      gap: clamp(16px, 1.5vw, 28px);
-      text-transform: uppercase;
-      letter-spacing: 0.26em;
-      font-weight: 500;
-      font-size: 0.78rem;
-      color: rgba(12, 57, 34, 0.78);
-    }
-
-    .menu a {
-      position: relative;
-      padding-bottom: 6px;
-    }
-
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(198, 166, 82, 0), rgba(198, 166, 82, 0.9), rgba(198, 166, 82, 0));
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.3s ease;
-    }
-
-    .menu a:hover::after {
-      transform: scaleX(1);
-    }
-
-    main {
-      display: block;
-    }
-
-    .hero {
-      position: relative;
-      padding: 132px 0 120px;
-      overflow: hidden;
+    /* Über uns – Hintergrundbild `team.jpg` + soft Overlay */
+    #ueber-uns{
+      position:relative;
       background:
-        radial-gradient(120% 90% at 18% 0%, rgba(227, 205, 127, 0.24) 0%, rgba(227, 205, 127, 0) 70%),
-        radial-gradient(120% 100% at 82% 12%, rgba(91, 157, 122, 0.22) 0%, rgba(91, 157, 122, 0) 68%),
-        linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(226, 242, 234, 0.9) 46%, rgba(207, 229, 217, 0.85) 100%);
+        linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(226,242,234,.82) 100%),
+        url('img/team.jpg');
+      background-size:cover;background-position:center;
     }
+    .about-grid{display:grid;gap:18px}
+    @media(min-width:980px){.about-grid{grid-template-columns:1fr 1fr}}
+    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .facts{display:grid;gap:12px}
+    .fact{display:flex;gap:12px;align-items:center;border:1px dashed var(--line);background:#ffffff;border-radius:12px;padding:12px}
+    .fact svg{width:22px;height:22px;color:var(--green-700)}
+    .fact strong{display:block}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    /* Kontakt – Hintergrundbild `telefon.jpg` + Overlay */
+    #kontakt{
       background:
-        radial-gradient(80% 70% at 18% 18%, rgba(198, 166, 82, 0.22) 0%, rgba(198, 166, 82, 0) 65%),
-        radial-gradient(60% 60% at 82% 16%, rgba(36, 115, 77, 0.2) 0%, rgba(44, 115, 77, 0) 70%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(244, 249, 246, 0.68) 88%);
-      pointer-events: none;
+        linear-gradient(180deg, rgba(244,249,246,.90) 0%, rgba(226,242,234,.88) 70%, rgba(207,229,217,.90) 100%),
+        url('img/telefon.jpg');
+      background-size:cover;background-position:center;
     }
-
-    .hero-inner {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 var(--side-padding);
-      display: grid;
-      gap: clamp(36px, 4vw, 56px);
-      align-items: stretch;
-      z-index: 1;
-    }
-
-    @media (min-width: 980px) {
-      .hero-inner {
-        grid-template-columns: repeat(2, minmax(320px, 1fr));
-      }
-    }
-
-    .hero-services {
-      display: grid;
-      gap: clamp(22px, 2.2vw, 28px);
-      align-content: start;
-    }
-
-    .service-card {
-      padding: clamp(34px, 4vw, 48px);
-      border-radius: 28px;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.82), rgba(207, 229, 217, 0.74));
-      border: 1px solid rgba(198, 230, 210, 0.58);
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-      box-shadow: 0 12px 30px rgba(8, 38, 23, 0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      min-height: 152px;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 40px rgba(8, 38, 23, 0.18);
-    }
-
-    .service-icon {
-      width: clamp(72px, 6.8vw, 92px);
-      height: clamp(72px, 6.8vw, 92px);
-      display: grid;
-      place-items: center;
-    }
-
-    .service-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: none;
-      stroke: var(--gold-500);
-      stroke-width: 2.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 6px 12px rgba(8, 38, 23, 0.18));
-    }
-
-    .service-title {
-      text-transform: uppercase;
-      letter-spacing: 0.26em;
-      font-weight: 600;
-      font-size: clamp(1.06rem, 0.6vw + 0.8rem, 1.22rem);
-      color: var(--green-900);
-      text-align: left;
-      flex: 1;
-    }
-
-    .hero-copy {
-      position: relative;
-      padding: clamp(32px, 4vw, 48px);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(150deg, rgba(255, 255, 255, 0.88), rgba(219, 236, 227, 0.8));
-      border: 1px solid rgba(198, 229, 212, 0.68);
-      box-shadow: 0 28px 46px rgba(8, 38, 23, 0.16);
-      display: grid;
-      gap: clamp(32px, 3.6vw, 44px);
-      align-content: start;
-      max-width: none;
-      width: 100%;
-    }
-
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-lg);
-      background: radial-gradient(88% 82% at 18% 0%, rgba(227, 205, 127, 0.28) 0%, rgba(0, 0, 0, 0) 72%);
-      pointer-events: none;
-      opacity: 0.6;
-    }
-
-    .hero-copy .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      letter-spacing: 0.44em;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      color: rgba(152, 118, 51, 0.86);
-    }
-
-    .hero-copy .eyebrow::before {
-      content: "";
-      width: 56px;
-      height: 1px;
-      background: rgba(152, 118, 51, 0.3);
-    }
-
-    .hero-copy h1 {
-      margin: 18px 0 12px;
-      font-size: clamp(2.8rem, 4.2vw, 4.2rem);
-      line-height: 1.08;
-      letter-spacing: 0.08em;
-      color: var(--green-900);
-      text-shadow: none;
-    }
-
-    .hero-copy p {
-      margin: 0;
-      font-size: 1.12rem;
-      letter-spacing: 0.04em;
-      max-width: 58ch;
-      color: rgba(12, 57, 34, 0.8);
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      padding: 12px 30px;
-      border-radius: 999px;
-      border: 1px solid rgba(152, 118, 51, 0.28);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(227, 242, 233, 0.68));
-      color: var(--green-800);
-      font-size: 0.92rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-      margin-top: clamp(24px, 5vw, 56px);
-    }
-
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 28px rgba(8, 38, 23, 0.16);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(214, 234, 223, 0.8));
-      color: var(--green-900);
-    }
-
-    section {
-      position: relative;
-      padding: 110px 0;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(80% 80% at 20% 0%, rgba(198, 166, 82, 0.18) 0%, rgba(8, 38, 23, 0) 70%);
-      opacity: 0.35;
-    }
-
-    .section-inner {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 var(--side-padding);
-      display: grid;
-      gap: 48px;
-    }
-
-    .section-head {
-      display: grid;
-      gap: 12px;
-      color: var(--green-900);
-    }
-
-    .section-head span {
-      text-transform: uppercase;
-      letter-spacing: 0.32em;
-      font-size: 0.8rem;
-      color: rgba(152, 118, 51, 0.6);
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(2.3rem, 2.6vw, 3.2rem);
-      letter-spacing: 0.1em;
-    }
-
-    #portfolio {
-      background: linear-gradient(180deg, rgba(244, 249, 246, 0.9) 0%, rgba(226, 242, 234, 0.9) 100%);
-    }
-
-    #portfolio::before {
-      background: radial-gradient(120% 120% at 12% 8%, rgba(198, 166, 82, 0.16) 0%, rgba(12, 57, 34, 0) 60%);
-    }
-
-    .portfolio-grid {
-      display: grid;
-      gap: 32px;
-    }
-
-    @media (min-width: 960px) {
-      .portfolio-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .portfolio-card {
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-      padding: 32px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(226, 242, 234, 0.9));
-      border: 1px solid rgba(207, 229, 217, 0.6);
-      box-shadow: 0 26px 52px rgba(8, 38, 23, 0.14);
-      color: var(--green-900);
-      min-height: 100%;
-    }
-
-    .portfolio-card h3 {
-      margin: 0;
-      font-size: 1.9rem;
-      letter-spacing: 0.08em;
-      color: var(--green-900);
-      text-transform: uppercase;
-    }
-
-    .media-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .media-frame {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      padding-bottom: 66%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(207, 229, 217, 0.28));
-      box-shadow: 0 22px 38px rgba(8, 38, 23, 0.14);
-    }
-
-    .media-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--media-gradient, linear-gradient(135deg, rgba(31, 107, 70, 0.52), rgba(8, 38, 21, 0.7)));
-      background-size: cover;
-      background-position: center;
-      filter: saturate(1.05) contrast(1.04);
-      transform: scale(1);
-      transition: transform 0.6s ease;
-    }
-
-    .media-frame::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .media-frame:hover::before {
-      transform: scale(1.04);
-    }
-
-    .media-hochbau {
-      --media-gradient: linear-gradient(135deg, rgba(13, 82, 53, 0.75), rgba(198, 166, 82, 0.28)), radial-gradient(80% 100% at 20% 20%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0));
-    }
-
-    .media-aussenanlagen {
-      --media-gradient: linear-gradient(140deg, rgba(21, 105, 64, 0.78), rgba(91, 157, 122, 0.42));
-    }
-
-    .media-gebaeude {
-      --media-gradient: linear-gradient(140deg, rgba(8, 67, 54, 0.82), rgba(198, 166, 82, 0.24));
-    }
-
-    .media-metall {
-      --media-gradient: linear-gradient(140deg, rgba(20, 80, 70, 0.82), rgba(152, 118, 51, 0.36));
-    }
-
-    .portfolio-card p {
-      margin: 0;
-      font-size: 1.02rem;
-      color: rgba(12, 57, 34, 0.75);
-      letter-spacing: 0.04em;
-    }
-
-    .about {
-      background:
-        radial-gradient(120% 120% at 12% 0%, rgba(198, 166, 82, 0.2) 0%, rgba(198, 166, 82, 0) 64%),
-        linear-gradient(140deg, rgba(255, 255, 255, 0.92), rgba(226, 242, 234, 0.84));
-    }
-
-    .about::before {
-      background: radial-gradient(120% 120% at 88% 12%, rgba(198, 166, 82, 0.2) 0%, rgba(12, 57, 34, 0) 60%);
-    }
-
-    .about-layout {
-      display: grid;
-      gap: 42px;
-      align-items: stretch;
-      width: 100%;
-    }
-
-    .about-content {
-      padding: clamp(36px, 4vw, 52px);
-      border-radius: var(--radius-lg);
-      background: rgba(226, 242, 234, 0.86);
-      border: 1px solid rgba(207, 229, 217, 0.68);
-      box-shadow: 0 32px 56px rgba(8, 38, 23, 0.16);
-      color: var(--green-900);
-      display: grid;
-      gap: 24px;
-    }
-
-    .about-content .section-head {
-      color: var(--green-900);
-    }
-
-    .about-content .section-head span {
-      color: rgba(152, 118, 51, 0.62);
-    }
-
-    .about-content p {
-      margin: 0;
-      color: rgba(12, 57, 34, 0.78);
-      font-size: 1.08rem;
-      letter-spacing: 0.04em;
-    }
-
-    .contact {
-      background:
-        radial-gradient(160% 120% at 88% -10%, rgba(198, 166, 82, 0.2) 0%, rgba(198, 166, 82, 0) 60%),
-        linear-gradient(180deg, rgba(244, 249, 246, 0.92) 0%, rgba(226, 242, 234, 0.88) 70%, rgba(207, 229, 217, 0.92) 100%);
-    }
-
-    .contact-grid {
-      display: grid;
-      gap: 32px;
-      width: 100%;
-      margin: 0 auto;
-      justify-items: stretch;
-    }
-
-    .contact-grid .card {
-      width: 100%;
-    }
-
-    .card {
-      padding: clamp(28px, 4vw, 38px);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(219, 236, 227, 0.82));
-      border: 1px solid rgba(207, 229, 217, 0.62);
-      box-shadow: 0 30px 52px rgba(8, 38, 23, 0.15);
-      color: var(--green-900);
-      display: grid;
-      gap: 18px;
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--green-900);
-    }
-
-    .card p {
-      margin: 0;
-      color: rgba(12, 57, 34, 0.78);
-      font-size: 1.04rem;
-      letter-spacing: 0.04em;
-    }
-
-    .contact .card {
-      background: rgba(226, 242, 234, 0.86);
-      border: 1px solid rgba(198, 230, 210, 0.7);
-    }
-
-    .legal {
-      background: linear-gradient(180deg, rgba(244, 249, 246, 0.92) 0%, rgba(238, 244, 239, 0.92) 100%);
-    }
-
-    .legal .section-inner {
-      gap: 36px;
-    }
-
-    footer {
-      padding: 36px var(--side-padding);
-      text-align: center;
-      color: rgba(12, 57, 34, 0.7);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(226, 242, 234, 0.85));
-      border-top: 1px solid rgba(198, 229, 212, 0.68);
-    }
-
-    footer a {
-      color: rgba(12, 57, 34, 0.78);
-    }
-
-    footer a:hover {
-      color: var(--gold-300);
-    }
-
-    @media (max-width: 780px) {
-      header {
-        position: sticky;
-        top: 0;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .menu {
-        flex-wrap: wrap;
-      }
-
-      .hero {
-        padding: 120px 0 100px;
-        background-position: center;
-      }
-
-      .hero-services {
-        gap: 18px;
-      }
-
-      .hero-copy {
-        padding: 28px;
-      }
-
-      section {
-        padding: 90px 0;
-      }
-    }
+    .contact-grid{display:grid;gap:18px}
+    @media(min-width:980px){.contact-grid{grid-template-columns:1fr 1fr}}
+    label{font-weight:600}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a}
+    textarea{min-height:140px}
+    .submit{display:inline-block;background:var(--green-700);color:#fff;font-weight:800;border:1px solid #1a5b3b;padding:12px 18px;border-radius:999px}
+    .submit:hover{background:var(--green-600)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86))}
+    footer .container{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;color:rgba(12,57,34,.76);padding:18px;letter-spacing:.08em;text-transform:uppercase;font-size:.86rem}
   </style>
+
+  <!-- Strukturierte Daten -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Arslan GmbH",
+    "url":"https://arslan-gmbh.de",
+    "email":"arslangmbh@gmx.net",
+    "telephone":"+4961028688109",
+    "faxNumber":"+4961028688108",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Werner-Heisenberg Str. 2",
+      "postalCode":"63263",
+      "addressLocality":"Neu-Isenburg",
+      "addressCountry":"DE"
+    },
+    "description":"Hoch- & Innenbau, Außenanlagen, Gebäudereinigung & Objektbetreuung, Metall & Schweißen – Meisterbetrieb seit über 20 Jahren."
+  }
+  </script>
 </head>
 <body>
+
+<!-- Header -->
 <header>
-  <nav class="nav">
-    <a class="brand" href="#home">
-      <svg viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="brand" href="#home" aria-label="Startseite Arslan GmbH">
+      <!-- Neues Haus-Logo (Gold/Grün) -->
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
         <defs>
-          <linearGradient id="logo-a" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#fff5d6"/>
-            <stop offset="48%" stop-color="#efd58b"/>
-            <stop offset="100%" stop-color="#c59b3d"/>
-          </linearGradient>
-          <linearGradient id="logo-ring" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#fbe9ba"/>
-            <stop offset="45%" stop-color="#e6c87e"/>
-            <stop offset="100%" stop-color="#c6a14a"/>
+          <linearGradient id="gold" x1="0" x2="1">
+            <stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#c39a2e"/>
           </linearGradient>
         </defs>
-        <circle cx="80" cy="80" r="58" fill="none" stroke="url(#logo-ring)" stroke-width="5.2" stroke-linecap="round" opacity="0.9"/>
-        <path d="M80 18 24 142h23.2l11.6-26.2h42.4L112 142h24L80 18Zm0 35.6L99 98H61Z" fill="url(#logo-a)" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Goldener Ring/Schild -->
+        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#gold)" stroke-width="3.6"/>
+        <!-- Haus -->
+        <path d="M16 34l16-12 16 12v10H40V36H24v8H16V34z" fill="#1f6b46"/>
+        <rect x="28" y="38" width="8" height="6" fill="#ffffff"/>
       </svg>
-      <div class="wordmark">
-        <span class="wordmark-main">ARSLAN GMBH</span>
-        <span class="wordmark-tagline">Meisterbetrieb</span>
-      </div>
+      <div class="name">Arslan GmbH</div>
     </a>
     <div class="menu">
       <a href="#home">Start</a>
@@ -686,132 +196,155 @@
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
     </div>
   </nav>
 </header>
 
-<main>
-  <section id="home" class="hero">
-    <div class="hero-inner">
-      <aside class="hero-services" aria-label="Kompetenzfelder">
-        <h2 class="sr-only">Kompetenzfelder</h2>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <path d="m8 26 16-12 16 12"/>
-              <path d="M14 26v14h20V26"/>
-              <path d="M22 40V30h4v10"/>
-            </svg>
-          </div>
-          <div class="service-title">Hoch- &amp; Innenbau</div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <path d="M24 6L34 20H28l8 10H12l8-10h-6Z"/>
-              <path d="M24 27v12"/>
-              <path d="M20 39h8"/>
-            </svg>
-          </div>
-          <div class="service-title">Außenanlagen</div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <path d="M24 8l3.2 9.8L38 22l-10.8 4.2L24 36l-3.2-9.8L10 22l10.8-4.2Z"/>
-              <path d="M12 12l1.8 5.2L18 18.8 12.6 20.4 12 26l-1.8-5.2L6 18.8l4.4-1.6Z"/>
-              <path d="m36 25.4 1.2 3.2 3.2 1.2-3.2 1.2-1.2 3.2-1.2-3.2-3.2-1.2 3.2-1.2Z"/>
-            </svg>
-          </div>
-          <div class="service-title">Gebäudereinigung &amp; Objektbetreuung</div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <circle cx="24" cy="24" r="9"/>
-              <circle cx="24" cy="24" r="4"/>
-              <path d="M24 8v4"/>
-              <path d="M24 36v4"/>
-              <path d="M8 24h4"/>
-              <path d="M36 24h4"/>
-              <path d="m13.5 13.5 2.8 2.8"/>
-              <path d="m31.7 31.7 2.8 2.8"/>
-              <path d="m13.5 34.5 2.8-2.8"/>
-              <path d="m31.7 16.3 2.8-2.8"/>
-            </svg>
-          </div>
-          <div class="service-title">Metall &amp; Schweißen</div>
-        </div>
-      </aside>
-      <div class="hero-copy">
-        <span class="eyebrow">Rhein-Main Exzellenz</span>
-        <h1>Meisterbetrieb seit über 20 Jahren</h1>
-        <p>Interdisziplinäre Meisterteams bündeln Planung, Ausbau und Betreuung zu einem abgestimmten Prozess – präzise geführt, termintreu und mit Sinn für wertsteigernde Details.</p>
-        <p>Wir verbinden Hoch- &amp; Innenbau, Außenanlagen, Gebäudereinigung und Metallbau zu einem verlässlichen Komplettpaket, das anspruchsvolle Projekte im Rhein-Main-Gebiet sichtbar voranbringt.</p>
-        <a class="hero-cta" href="#kontakt">Kontaktieren Sie uns!</a>
-      </div>
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <span class="slogan">Meisterbetrieb seit über 20 Jahren</span>
+    <h1>Baudienstleistungen aus einer Hand</h1>
+    <div class="buzz">
+      <span class="chip">Präzise</span>
+      <span class="chip">Sauber</span>
+      <span class="chip">Termintreu</span>
     </div>
-  </section>
+  </div>
 
-  <section id="portfolio">
-    <div class="section-inner">
-      <div class="section-head">
-        <span>Leistungsportfolio</span>
-        <h2>Kompetenzfelder für anspruchsvolle Projekte</h2>
-      </div>
-      <div class="portfolio-grid">
-        <article class="portfolio-card">
-          <div class="media-grid">
-            <div class="media-frame media-hochbau" role="img" aria-label="Innenausbau – präzises Arbeiten am Ständerwerk"></div>
-          </div>
-          <h3>Hoch- &amp; Innenbau</h3>
-          <p>Wir begleiten Rohbau, Ausbau und Modernisierung von Wohn- und Gewerbeprojekten – präzise koordiniert von der Statik bis zur veredelten Oberfläche.</p>
-        </article>
-        <article class="portfolio-card">
-          <div class="media-grid">
-            <div class="media-frame media-aussenanlagen" role="img" aria-label="Außenanlagen – gepflegte Wege und Grünflächen"></div>
-          </div>
-          <h3>Außenanlagen</h3>
-          <p>Repräsentative Freianlagen, Pflasterungen, Terrassen und Garten- und Landschaftsbau, die Funktionalität mit stilvoller Gestaltung in Einklang bringen.</p>
-        </article>
-        <article class="portfolio-card">
-          <div class="media-grid">
-            <div class="media-frame media-gebaeude" role="img" aria-label="Gebäudereinigung – professionelle Glasreinigung"></div>
-          </div>
-          <h3>Gebäudereinigung &amp; Objektbetreuung</h3>
-          <p>Umfassende Pflege- und Servicepakete für Innen- und Außenbereiche, inklusive Hausmeisterdiensten, Wartung und Werterhalt Ihrer Immobilien.</p>
-        </article>
-        <article class="portfolio-card">
-          <div class="media-grid">
-            <div class="media-frame media-metall" role="img" aria-label="Metallbau – Schweißer bei der Arbeit"></div>
-          </div>
-          <h3>Metall &amp; Schweißen</h3>
-          <p>Individuelle Metallkonstruktionen, Schweißarbeiten und Sonderanfertigungen, die Stabilität und Eleganz in Metall vereinen.</p>
-        </article>
-      </div>
+  <!-- 4 Cards direkt unter dem Banner (ohne Beschreibungen) -->
+  <div class="quick-cards">
+    <div class="q-card">Hoch- &amp; Innenbau</div>
+    <div class="q-card">Außenanlagen</div>
+    <div class="q-card">Gebäudereinigung&nbsp;&amp; Objektbetreuung</div>
+    <div class="q-card">Metall&nbsp;&amp; Schweißen</div>
+  </div>
+</section>
+
+<!-- Leistungsportfolio – Reihenfolge & Bildzuordnung nach Wunsch -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head">
+      <span>Leistungsportfolio</span>
+      <h2>Vier starke Kompetenzfelder</h2>
     </div>
-  </section>
 
-  <section id="ueber-uns" class="about">
-    <div class="section-inner about-layout">
-      <div class="about-content">
-        <div class="section-head">
-          <span>Über uns</span>
-          <h2>Kompetenz aus Meisterhand</h2>
+    <div class="grid">
+      <!-- 1) Hoch- & Innenbau: innenausbau (Hauptvisual), optional zweites Bild weggelassen für Klarheit -->
+      <article class="port-card">
+        <div class="port-media">
+          <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk"></div>
         </div>
-        <p>Seit mehr als 20 Jahren führen unsere interdisziplinären Teams sämtliche Bau- und Serviceleistungen zu einer klaren Linie zusammen – von der Planung über die Ausführung bis zur betreuten Nutzung.</p>
-        <p>Tief verwurzelte Erfahrung und Partnerschaften im Rhein-Main-Gebiet sichern reibungslose Abstimmungen, transparente Entscheidungen und Ergebnisse, die Werte sichtbar erhöhen.</p>
-      </div>
-    </div>
-  </section>
+        <div class="port-body">
+          <h3><span class="dot" aria-hidden="true"></span> Hoch- &amp; Innenbau</h3>
+          <ul>
+            <li>Hochbau, Rohbau &amp; bauliche Erweiterungen</li>
+            <li>Innenausbau, Renovierung &amp; Modernisierung</li>
+            <li>Trockenbau, Boden- und Malerarbeiten</li>
+          </ul>
+          <span class="port-badge">Planung · Ausführung · Abnahme</span>
+        </div>
+      </article>
 
-  <section id="kontakt" class="contact">
-    <div class="section-inner contact-grid">
-      <div class="section-head">
-        <span>Kontakt</span>
-        <h2>Direkter Draht zur Projektplanung</h2>
-      </div>
+      <!-- 2) Außenanlagen: nur gartenbau -->
+      <article class="port-card">
+        <div class="port-media">
+          <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau"></div>
+        </div>
+        <div class="port-body">
+          <h3><span class="dot" aria-hidden="true"></span> Außenanlagen</h3>
+          <ul>
+            <li>Garten- &amp; Landschaftsbau sowie Pflegekonzepte</li>
+            <li>Pflaster-, Wege- &amp; Terrassenarbeiten</li>
+          </ul>
+          <span class="port-badge">Außenräume funktional &amp; schön</span>
+        </div>
+      </article>
+
+      <!-- 3) Gebäudereinigung & Objektbetreuung: nur gebaeudereinigung -->
+      <article class="port-card">
+        <div class="port-media">
+          <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung"></div>
+        </div>
+        <div class="port-body">
+          <h3><span class="dot" aria-hidden="true"></span> Gebäudereinigung &amp; Objektbetreuung</h3>
+          <ul>
+            <li>Baureinigung &amp; Endreinigung</li>
+            <li>Unterhaltsreinigung von Büro &amp; Industrie</li>
+            <li>Glas- &amp; Fassadenreinigung</li>
+            <li>Hausmeister- &amp; Technikservice</li>
+          </ul>
+          <span class="port-badge">Sauberkeit · Sicherheit · Werterhalt</span>
+        </div>
+      </article>
+
+      <!-- 4) Metall & Schweißen: nur schweissen -->
+      <article class="port-card">
+        <div class="port-media">
+          <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger"></div>
+        </div>
+        <div class="port-body">
+          <h3><span class="dot" aria-hidden="true"></span> Metall &amp; Schweißen</h3>
+          <ul>
+            <li>Schweißer- &amp; Isolierarbeiten für Industrieanlagen</li>
+            <li>Schlosserei, Metallbau &amp; Sonderkonstruktionen</li>
+            <li>Gleisverlegen und Instandhaltung</li>
+          </ul>
+          <span class="port-badge">Zertifizierte Fachkräfte</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Über uns – nur fette Zeilen, mit Hintergrundbild team.jpg -->
+<section id="ueber-uns">
+  <div class="container">
+    <div class="section-head">
+      <span>Über uns</span>
+      <h2>Verantwortung &amp; Vertrauen im Rhein-Main-Gebiet</h2>
+    </div>
+
+    <div class="about-grid">
       <div class="card">
+        <div class="facts">
+          <div class="fact">
+            <!-- Pokal -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3h14v3h2a3 3 0 0 1-3 3h-1.1A6.002 6.002 0 0 1 13 12.9V15h3v2H8v-2h3v-2.1A6.002 6.002 0 0 1 7.1 9H6A3 3 0 0 1 3 6h2V3zm2.1 6h9.8A4 4 0 0 0 21 7V6h-2V5H5v1H3v1a4 4 0 0 0 4.1 2z"/></svg>
+            <strong>Meisterbetrieb seit über 20 Jahren</strong>
+          </div>
+          <div class="fact">
+            <!-- Team -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-7 9v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2Z"/></svg>
+            <strong>Interdisziplinäre Teams</strong>
+          </div>
+          <div class="fact">
+            <!-- Kalender/Haken -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v3H2V6a2 2 0 0 1 2-2h3V2Zm15 8v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8Zm-6.6 3.2-3.9 3.9-1.9-1.9-1.4 1.4 3.3 3.3 5.3-5.3Z"/></svg>
+            <strong>Termintreue &amp; Qualität</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <img src="img/team.jpg" alt="Unser Team – Planung und Koordination" style="border-radius:18px;display:block">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt – Kontaktdaten hervorgehoben, Formular dezent -->
+<section id="kontakt">
+  <div class="container">
+    <div class="section-head">
+      <span>Kontakt</span>
+      <h2>Direkter Draht zur Projektplanung</h2>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Kontaktdaten (hervorgehoben) -->
+      <div class="card" style="border-width:2px;border-color:#dfe7e3">
         <p><strong>Arslan GmbH</strong><br>
            Werner-Heisenberg Str. 2<br>
            63263 Neu-Isenburg</p>
@@ -822,30 +355,80 @@
           <a href="https://maps.google.com/?q=Werner-Heisenberg-Str.-2,+63263+Neu-Isenburg" target="_blank" rel="noopener">Anfahrt auf Google&nbsp;Maps</a>
         </p>
       </div>
-    </div>
-  </section>
 
-  <section id="impressum" class="legal">
-    <div class="section-inner">
-      <div class="section-head">
-        <span>Impressum</span>
-        <h2>Rechtliche Angaben &amp; Datenschutz</h2>
-      </div>
+      <!-- Formular (dezent) -->
       <div class="card">
-        <p><strong>Arslan GmbH</strong><br>
-        Werner-Heisenberg Str. 2, 63263 Neu-Isenburg<br>
-        Tel: 06102-8688109 · Fax: 06102-8688108 · E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a></p>
-        <p><strong>Geschäftsführer:</strong> Johnny Eric Max Stuart<br>
-        <strong>Registergericht:</strong> Amtsgericht Offenbach am Main · <strong>HRB:</strong> 42992<br>
-        <strong>USt-IdNr.:</strong> DE256383679</p>
-        <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, Tel.: 06102-8688109, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>. Bei Kontaktaufnahme per E-Mail verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur solange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten erforderlich ist. Es werden keine Analyse- oder Tracking-Cookies gesetzt.</p>
+        <h3 style="margin-top:0">Kontaktformular</h3>
+        <form class="form" action="mailto:arslangmbh@gmx.net" method="post" enctype="text/plain">
+          <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <div>
+              <label for="fname">Vor- und Nachname</label>
+              <input id="fname" name="Name" required>
+            </div>
+            <div>
+              <label for="fmail">E-Mail</label>
+              <input id="fmail" name="E-Mail" type="email" required>
+            </div>
+          </div>
+          <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:12px">
+            <div>
+              <label for="fphone">Telefon (optional)</label>
+              <input id="fphone" name="Telefon" inputmode="tel">
+            </div>
+            <div>
+              <label for="fsubject">Betreff</label>
+              <input id="fsubject" name="Betreff" required>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <label for="fmsg">Nachricht</label>
+            <textarea id="fmsg" name="Nachricht" required></textarea>
+          </div>
+          <button class="submit" type="submit" style="margin-top:10px">Nachricht senden</button>
+        </form>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<!-- Impressum -->
+<section id="impressum">
+  <div class="container">
+    <div class="section-head">
+      <span>Impressum</span>
+      <h2>Rechtliche Angaben</h2>
+    </div>
+    <div class="card">
+      <p><strong>Arslan GmbH</strong><br>
+      Werner-Heisenberg Str. 2, 63263 Neu-Isenburg<br>
+      Tel: 06102-8688109 · Fax: 06102-8688108 · E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a></p>
+
+      <p><strong>Geschäftsführer:</strong> Johnny Eric Max Stuart<br>
+      <strong>Registergericht:</strong> Amtsgericht Offenbach am Main · <strong>HRB:</strong> 42992<br>
+      <strong>USt-IdNr.:</strong> DE256383679</p>
+    </div>
+  </div>
+</section>
+
+<!-- Datenschutz (Kurzfassung) -->
+<section id="datenschutz">
+  <div class="container">
+    <div class="section-head">
+      <span>Datenschutz</span>
+      <h2>Datenschutzerklärung (Kurzfassung)</h2>
+    </div>
+    <div class="card">
+      <p><strong>Verantwortlicher:</strong> Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>, Tel.: 06102-8688109.</p>
+      <p><strong>Kommunikation per E-Mail:</strong> Bei Kontaktaufnahme per E-Mail oder Formular (öffnet ggf. Ihr E-Mail-Programm) verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten erforderlich ist.</p>
+      <p><strong>Cookies / Tracking:</strong> Es werden keine Analyse-/Tracking-Cookies gesetzt; es findet kein Tracking statt.</p>
+    </div>
+  </div>
+</section>
 
 <footer>
-  © <span id="y"></span> Arslan GmbH · <a href="#impressum">Impressum</a>
+  <div class="container">
+    © <span id="y"></span> Arslan GmbH · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
+  </div>
 </footer>
 
 <script>
