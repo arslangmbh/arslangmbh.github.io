@@ -13,6 +13,10 @@
   <meta property="og:url" content="https://arslan-gmbh.de">
   <link rel="canonical" href="https://arslan-gmbh.de">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       /* Farbwelt Grün/Gold/Weiß (hell, edel) */
@@ -35,19 +39,26 @@
       --radius:16px;
       --maxw:1140px;
       --pad:clamp(20px,4vw,60px);
-      --shadow:0 16px 38px rgba(12,57,34,.14);
+      --shadow:0 18px 36px rgba(12,57,34,.15);
+      --shadow-soft:0 22px 45px rgba(15,23,42,.08);
+      --blur-bg:rgba(255,255,255,.72);
     }
 
     *{box-sizing:border-box}
     html,body{
       margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
+      font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
       color:var(--ink);
       line-height:1.6;
       /* Heller Gradient Hintergrund, mit dezentem Gold-Schimmer */
       background:
-        radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.12) 0%, rgba(212,175,55,0) 60%),
-        linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
+        radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.14) 0%, rgba(212,175,55,0) 60%),
+        linear-gradient(180deg, #ffffff 0%, #fbf4e7 32%, #eef5f1 100%);
+    }
+    h1,h2,h3{
+      font-family:'Playfair Display',"Times New Roman",serif;
+      font-weight:600;
+      letter-spacing:.01em;
     }
     img{max-width:100%;display:block;border-radius:14px}
     a{color:var(--green-700);text-decoration:none}
@@ -56,20 +67,20 @@
     /* Header */
     header{
       position:sticky;top:0;z-index:40;
-      background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86));
+      background:linear-gradient(135deg, rgba(255,255,255,.94), rgba(230,244,237,.86));
       border-bottom:1px solid var(--line);
       backdrop-filter:blur(8px);
     }
-    .nav{max-width:var(--maxw);margin:auto;padding:10px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
-    .brand .namewrap{display:flex;flex-direction:column;line-height:1.1}
+    .nav{max-width:var(--maxw);margin:auto;padding:12px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:16px;text-decoration:none;padding:6px 10px;border-radius:18px;background:linear-gradient(135deg, rgba(255,255,255,.84), rgba(240,248,244,.76));box-shadow:0 14px 32px rgba(12,57,34,.12)}
+    .brand .namewrap{display:flex;flex-direction:column;line-height:1.05}
     /* Logo: Goldener Ring + goldenes A mit Hochglanz */
-    .brand svg{width:60px;height:60px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
+    .brand svg{width:66px;height:66px;filter:drop-shadow(0 18px 28px rgba(12,57,34,.18))}
     .brand .wordmark{
       font-weight:900;letter-spacing:.04em;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-transform:uppercase;font-size:1.15rem;
+      text-transform:uppercase;font-size:1.18rem;
     }
     .brand .tagline{
       margin-top:2px;
@@ -77,66 +88,74 @@
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .menu{display:flex;gap:18px;flex-wrap:wrap}
-    .menu a{color:var(--green-900);font-weight:700}
+    .menu{display:flex;gap:20px;flex-wrap:wrap}
+    .menu a{color:var(--green-900);font-weight:600;padding:6px 0;position:relative}
+    .menu a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:linear-gradient(90deg, var(--gold-300), var(--gold-600));opacity:0;transform:translateY(4px);transition:.3s ease}
     .menu a:hover{color:var(--green-700)}
+    .menu a:hover::after{opacity:1;transform:translateY(0)}
 
     /* Hero – mit Hintergrundbild `hochbau.jpg` + Overlay */
     .hero{
       position:relative;
       color:#fff;
       background:
-        linear-gradient(180deg, rgba(31,107,70,.72) 0%, rgba(18,88,55,.78) 60%, rgba(12,57,34,.84) 100%),
+        linear-gradient(180deg, rgba(31,107,70,.76) 0%, rgba(18,88,55,.8) 55%, rgba(12,57,34,.86) 100%),
         url('img/hochbau.jpg');
       background-size:cover;background-position:center;
       border-bottom:1px solid var(--line);
     }
-    .hero-inner{max-width:var(--maxw);margin:auto;padding:56px var(--pad) 30px;display:grid;gap:10px}
+    .hero-inner{max-width:var(--maxw);margin:auto;padding:66px var(--pad) 40px;display:grid;gap:12px}
     .slogan{
       color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;
       font-size:.9rem
     }
-    .hero h1{margin:8px 0 0;font-size:clamp(28px,4.8vw,48px);line-height:1.1}
+    .hero h1{margin:8px 0 0;font-size:clamp(34px,5.2vw,54px);line-height:1.05;text-shadow:0 18px 32px rgba(12,57,34,.38)}
 
     /* Quick cards unter dem Banner (edler Look + Icons) */
-    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:16px var(--pad) 36px;display:grid;gap:14px}
+    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:26px var(--pad) 48px;display:grid;gap:18px}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
     .q-card{
+      position:relative;
+      overflow:hidden;
       background:
-        linear-gradient(145deg, rgba(255,255,255,.92), rgba(240,248,244,.9));
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:16px 14px;
-      display:flex;align-items:center;justify-content:center;gap:10px;
-      font-weight:900;text-align:center;box-shadow:var(--shadow);
+        linear-gradient(160deg, rgba(255,255,255,.92) 0%, rgba(241,248,244,.92) 65%, rgba(235,243,239,.86) 100%);
+      border:1px solid rgba(212,175,55,.22);
+      border-radius:22px;
+      padding:24px 20px;
+      display:flex;align-items:center;justify-content:center;gap:16px;
+      font-weight:700;text-align:left;box-shadow:var(--shadow-soft);
       color:var(--green-900);
+      transition:transform .35s ease, box-shadow .35s ease;
     }
+    .q-card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(220px at -20% -20%, rgba(212,175,55,.24), transparent 65%);opacity:.85;pointer-events:none}
+    .q-card:hover{transform:translateY(-6px);box-shadow:0 26px 48px rgba(12,57,34,.2)}
     .q-icon{
-      width:26px;height:26px;flex:0 0 26px;
+      width:36px;height:36px;flex:0 0 36px;
       stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
-      filter:drop-shadow(0 6px 10px rgba(12,57,34,.12));
+      filter:drop-shadow(0 8px 14px rgba(12,57,34,.18));
     }
 
     /* Sections */
-    section{padding:46px var(--pad)}
+    section{padding:56px var(--pad)}
     .container{max-width:var(--maxw);margin:auto}
-    .section-head{margin-bottom:16px}
-    .section-head span{display:inline-block;color:var(--green-700);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.9rem}
-    .section-head h2{margin:6px 0 0;font-size:clamp(22px,3.2vw,32px);color:var(--green-900)}
+    .section-head{margin-bottom:28px}
+    .section-head span{display:inline-block;color:var(--green-700);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;background:rgba(255,255,255,.66);padding:6px 18px;border-radius:999px;border:1px solid rgba(212,175,55,.28)}
+    .section-head h2{margin:14px 0 0;font-size:clamp(26px,3.5vw,36px);color:var(--green-900)}
 
     /* Portfolio */
-    .grid{display:grid;gap:18px}
+    .grid{display:grid;gap:22px}
     @media(min-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .port-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-    .port-media{padding:8px;background:var(--surface-2);border-bottom:1px solid var(--line)}
-    .tile{height:220px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+    .port-card{background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(236,244,240,.92));border:1px solid rgba(212,175,55,.18);border-radius:24px;overflow:hidden;box-shadow:0 28px 54px rgba(12,57,34,.18);transition:transform .35s ease, box-shadow .35s ease}
+    .port-card:hover{transform:translateY(-8px);box-shadow:0 36px 60px rgba(12,57,34,.24)}
+    .port-media{padding:14px;background:rgba(255,255,255,.72);border-bottom:1px solid rgba(212,175,55,.18)}
+    .tile{height:220px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 16px 32px rgba(15,23,42,.12)}
     .tile img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
     .port-card:hover .tile img{transform:scale(1.04)}
-    .port-body{padding:18px}
-    .port-body h3{margin:0 0 8px;font-size:1.2rem;display:flex;align-items:center;gap:10px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--gold-500);box-shadow:0 0 0 4px rgba(212,175,55,.16)}
-    .port-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
-    .port-badge{display:inline-block;margin-top:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#0f172a;font-weight:700}
+    .port-body{padding:26px}
+    .port-body h3{margin:0 0 12px;font-size:1.32rem;display:flex;align-items:center;gap:12px}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--gold-500);box-shadow:0 0 0 5px rgba(212,175,55,.16)}
+    .port-body ul{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-weight:500}
+    .port-badge{display:inline-block;margin-top:18px;padding:8px 16px;border-radius:999px;background:#fff;border:1px solid rgba(212,175,55,.24);color:#0f172a;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:.72rem}
 
     /* Über uns – Hintergrundbild `team.jpg` + Overlay */
     #ueber-uns{
@@ -145,7 +164,7 @@
         url('img/team.jpg');
       background-size:cover;background-position:center;
     }
-    .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow)}
+    .about-card{background:linear-gradient(160deg, rgba(255,255,255,.9), rgba(235,243,239,.88));border:1px solid rgba(212,175,55,.2);border-radius:var(--radius-xl);padding:32px;box-shadow:0 24px 46px rgba(12,57,34,.18);backdrop-filter:blur(4px)}
 
     /* Kontakt – Hintergrundbild `telefon.jpg` + Overlay */
     #kontakt{
@@ -154,18 +173,18 @@
         url('img/telefon.jpg');
       background-size:cover;background-position:center;
     }
-    .contact-grid{display:grid;gap:18px}
+    .contact-grid{display:grid;gap:22px}
     @media(min-width:980px){.contact-grid{grid-template-columns:1fr 1fr}}
-    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
-    label{font-weight:600}
-    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a}
+    .card{background:linear-gradient(170deg, rgba(255,255,255,.94), rgba(236,244,240,.92));border:1px solid rgba(212,175,55,.18);border-radius:22px;padding:24px;box-shadow:0 26px 50px rgba(12,57,34,.18)}
+    label{font-weight:600;color:var(--green-800)}
+    input,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(12,57,34,.12);background:#fff;color:#0f172a;box-shadow:0 10px 24px rgba(15,23,42,.08) inset,0 4px 14px rgba(15,23,42,.06)}
     textarea{min-height:140px}
-    .submit{display:inline-block;background:var(--green-700);color:#fff;font-weight:800;border:1px solid #1a5b3b;padding:12px 18px;border-radius:999px}
-    .submit:hover{background:var(--green-600)}
+    .submit{display:inline-block;background:linear-gradient(135deg, var(--green-700), var(--green-600));color:#fff;font-weight:700;border:1px solid #1a5b3b;padding:12px 28px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 30px rgba(31,107,70,.32)}
+    .submit:hover{background:linear-gradient(135deg, var(--green-600), var(--green-700))}
 
     /* Footer */
-    footer{border-top:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86))}
-    footer .container{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;color:rgba(12,57,34,.76);padding:18px;letter-spacing:.08em;text-transform:uppercase;font-size:.86rem}
+    footer{border-top:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.94), rgba(230,244,237,.88))}
+    footer .container{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;color:rgba(12,57,34,.76);padding:22px;letter-spacing:.08em;text-transform:uppercase;font-size:.84rem}
   </style>
 
   <!-- Strukturierte Daten -->
@@ -210,18 +229,24 @@
             <stop offset="45%" stop-color="#efd58b"/>
             <stop offset="100%" stop-color="#c59b3d"/>
           </linearGradient>
-          <radialGradient id="shine" cx="30%" cy="20%" r="60%">
-            <stop offset="0%" stop-color="rgba(255,255,255,.9)"/>
+          <radialGradient id="shine" cx="32%" cy="22%" r="58%">
+            <stop offset="0%" stop-color="rgba(255,255,255,.92)"/>
             <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+          <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="55%" stop-color="rgba(255,255,255,.0)"/>
+            <stop offset="90%" stop-color="rgba(207,162,54,.25)"/>
+            <stop offset="100%" stop-color="rgba(167,127,45,.35)"/>
           </radialGradient>
         </defs>
         <!-- Ring -->
-        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#gRing)" stroke-width="3.6"/>
-        <!-- A -->
-        <path d="M32 10 12 54h10l5.5-12h17L50 54h10L32 10Zm0 14 7.7 18H24.3L32 24Z"
-              fill="url(#gA)" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linejoin="round"/>
+        <circle cx="32" cy="32" r="26.6" fill="url(#ringGlow)" />
+        <circle cx="32" cy="32" r="24.8" fill="none" stroke="url(#gRing)" stroke-width="4.2" stroke-linecap="round"/>
+        <!-- A vorne -->
+        <path d="M32 9 9.5 55h11l5.9-12.8h15.2L47.9 55h11L32 9Zm0 15.4 7.1 16.8H24.9L32 24.4Z"
+              fill="url(#gA)" stroke="rgba(255,255,255,.4)" stroke-width="1.1" stroke-linejoin="round"/>
         <!-- Glanz -->
-        <circle cx="22" cy="16" r="10" fill="url(#shine)" />
+        <circle cx="21" cy="17" r="10" fill="url(#shine)" />
       </svg>
       <div class="namewrap">
         <div class="wordmark">Arslan GmbH</div>
