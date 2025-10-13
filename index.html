@@ -33,11 +33,9 @@
       --green-700:#1b6241;
       --green-600:#1f6b46;
       --green-050:#f4faf6;
-      --gold-800:#a77f2d;
       --gold-700:#987633;
       --gold-600:#c39a2e;
       --gold-500:#d4af37;
-      --gold-300:#e6c976;
       --ink:#0b1a14;
       --muted:#46535e;
       --line:#e2ebe4;
@@ -57,7 +55,7 @@
       font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Noto Sans", Arial, sans-serif;
       color:var(--ink);line-height:1.65;
       background:
-        radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.12) 0%, rgba(212,175,55,0) 60%),
+        radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.10) 0%, rgba(212,175,55,0) 60%),
         linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
       -webkit-text-size-adjust:100%;
       text-size-adjust:100%;
@@ -84,27 +82,25 @@
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
     .namewrap{
       display:flex;flex-direction:column;line-height:1.02;
-      align-items:center; /* zentriert Tagline unter Wortmarke */
+      align-items:center; /* Tagline sauber mittig unter Wortmarke */
     }
-    /* Wortmarke größer als Tagline */
     .wordmark{
       font-weight:900;letter-spacing:.04em;
-      background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
+      background:linear-gradient(180deg, #fff3c6 0%, #ead48a 40%, #caa24a 70%, #a3872e 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-transform:uppercase;font-size:clamp(1.2rem,3vw,1.5rem);
+      text-transform:uppercase;font-size:clamp(1.2rem,3vw,1.55rem);
       display:inline-block;
     }
     .tagline{
       margin-top:2px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
       font-size:.68rem;
-      background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
+      background:linear-gradient(180deg, #fff6cf 0%, #e9d79a 50%, #cbb272 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
       align-self:center;text-align:center;white-space:nowrap;
       max-width:100%;
     }
-
     .logo svg{filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
-    .logo circle{opacity:.85}
+    .logo circle{opacity:.82}
 
     /* Hamburger */
     .menu-toggle{display:none;appearance:none;border:none;background:transparent;padding:10px;margin:-6px;border-radius:12px;cursor:pointer}
@@ -139,80 +135,82 @@
     .hero{
       position:relative;color:#fff;
       background:
-        linear-gradient(180deg, rgba(31,107,70,.72) 0%, rgba(18,88,55,.78) 60%, rgba(12,57,34,.84) 100%),
+        linear-gradient(180deg, rgba(31,107,70,.68) 0%, rgba(18,88,55,.76) 60%, rgba(12,57,34,.82) 100%),
         url('img/hochbau.jpg');
       background-size:cover;background-position:center;
       border-bottom:1px solid var(--line);
     }
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 60%)}
     .hero-inner{position:relative;z-index:1;max-width:var(--maxw);margin:auto;padding:56px var(--pad) 20px;display:grid;gap:10px}
-    .slogan{color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
+    .slogan{color:#e8d69a;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
     .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick Buttons – edlere, gold-transparente Pills mit Icon-Glow */
+    /* Quick Buttons – GLASSMORPHISM, dezenter Goldrand */
     .quick-cards{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad) 36px;display:grid;gap:10px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
 
     .q-card{
-      position:relative;overflow:hidden;justify-self:center;text-align:center;
+      position:relative;overflow:hidden;justify-self:stretch;text-align:center;
+      /* Glas-Look: zarter Weiß-Schleier, sehr dezenter Goldrand */
       background:
-        linear-gradient(145deg, rgba(255,248,204,.28), rgba(230,197,111,.16)) padding-box,
-        linear-gradient(135deg, #fff3c6, #e6c56f 45%, #caa24a 70%, #a77f2d 100%) border-box;
+        linear-gradient(145deg, rgba(255,255,255,.38), rgba(240,248,244,.32)) padding-box,
+        linear-gradient(135deg, rgba(212,175,55,.35), rgba(212,175,55,.20)) border-box;
       border:1.5px solid transparent;
       border-radius:999px;
-      padding:10px 14px; /* schmaler */
-      min-height:42px;
-      display:flex;align-items:center;justify-content:center;gap:8px;
-      font-weight:900;box-shadow:var(--shadow);
+      padding:12px 16px; /* etwas höher, damit Text „füllt“ */
+      min-height:46px;
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      font-weight:900;box-shadow:0 10px 26px rgba(12,57,34,.12);
       color:var(--green-900);
       transform:translateZ(0);
       transition:transform .35s ease, box-shadow .35s ease, filter .35s ease, background .35s ease;
       touch-action:manipulation;
       max-width:100%;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(10px) saturate(1.02);
+      -webkit-backdrop-filter: blur(10px) saturate(1.02);
       text-wrap: balance;
+      cursor:pointer;
     }
     .q-card:focus-visible{outline:var(--focus)}
-    .q-label{
-      /* Wrap erlaubt, damit lange Texte (z.B. Gebäudereinigung & Objektbetreuung) nicht abgeschnitten werden */
-      white-space:normal; line-height:1.15;
-    }
+    .q-label{white-space:normal; line-height:1.15}
 
     .q-icon{
       width:22px;height:22px;flex:0 0 22px;
-      stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
-      filter:drop-shadow(0 2px 4px rgba(12,57,34,.12));
+      stroke:#bfa14e; /* dezenteres Gold */
+      stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
+      filter:drop-shadow(0 2px 4px rgba(12,57,34,.10));
       transition:transform .35s ease, filter .35s ease;
       display:block;margin-right:2px;
     }
     .q-icon--sparkle{margin-right:2px}
 
+    /* Mobile Buttons sollen „füllen“ */
     @media(max-width:520px){
-      .q-card{gap:8px;padding:10px 12px}
+      .q-card{gap:10px;padding:12px 14px; width:100%}
       .q-icon{width:21px;height:21px;flex-basis:21px}
     }
 
     .q-card::before{
       content:"";position:absolute;inset:-30%;transform:skewX(-20deg) translateX(-120%);
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.80), transparent);
       opacity:.0;transition:transform .6s ease, opacity .6s ease;pointer-events:none;
     }
     @media (hover:hover){
       .q-card:hover{
         transform:translateY(-5px);
-        box-shadow:0 20px 44px rgba(12,57,34,.18), 0 0 0 2px rgba(212,175,55,.20) inset;
-        filter: drop-shadow(0 4px 8px rgba(212,175,55,.22));
+        box-shadow:0 22px 46px rgba(12,57,34,.16), 0 0 0 2px rgba(212,175,55,.16) inset;
+        filter: drop-shadow(0 4px 8px rgba(212,175,55,.16));
         background:
-          linear-gradient(145deg, rgba(255,248,204,.34), rgba(230,197,111,.22)) padding-box,
-          linear-gradient(135deg, #fff7da, #eed182 45%, #d4b35a 70%, #b1872c 100%) border-box;
+          linear-gradient(145deg, rgba(255,255,255,.48), rgba(240,248,244,.42)) padding-box,
+          linear-gradient(135deg, rgba(212,175,55,.42), rgba(212,175,55,.24)) border-box;
       }
       .q-card:hover .q-icon{
-        transform:scale(1.06);
+        transform:scale(1.05);
         /* dezentes Icon-Glühen */
-        filter: drop-shadow(0 0 8px rgba(212,175,55,.55)) drop-shadow(0 2px 4px rgba(12,57,34,.16));
+        filter: drop-shadow(0 0 8px rgba(212,175,55,.38)) drop-shadow(0 2px 4px rgba(12,57,34,.14));
       }
-      .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.95}
+      .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.9}
     }
 
     /* Abschnitte */
@@ -262,22 +260,22 @@
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a;font-size:1rem}
     textarea{min-height:140px}
 
-    /* Submit: weniger gold, translucent & edel */
+    /* Submit – translucent & edel, weniger Gold */
     .submit{
       display:inline-block;
-      font-weight:800;border:1px solid rgba(212,175,55,.55);padding:12px 18px;border-radius:999px;
+      font-weight:800;border:1px solid rgba(212,175,55,.45);padding:12px 18px;border-radius:999px;
       color:var(--green-800);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.65), rgba(230,244,237,.45));
+      background:linear-gradient(135deg, rgba(255,255,255,.62), rgba(230,244,237,.42));
       box-shadow: 0 8px 18px rgba(12,57,34,.10), inset 0 0 0 1px rgba(255,255,255,.35);
       text-transform:uppercase;letter-spacing:.08em;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px) saturate(1.02);
+      -webkit-backdrop-filter: blur(8px) saturate(1.02);
       transition: filter .25s ease, transform .15s ease, box-shadow .25s ease, border-color .25s ease;
     }
     .submit:hover{
       filter:brightness(1.03);
-      box-shadow: 0 10px 22px rgba(12,57,34,.14), 0 0 0 2px rgba(212,175,55,.20) inset;
-      border-color: rgba(212,175,55,.75);
+      box-shadow: 0 10px 22px rgba(12,57,34,.14), 0 0 0 2px rgba(212,175,55,.16) inset;
+      border-color: rgba(212,175,55,.65);
     }
     .submit:active{transform:translateY(1px)}
 
@@ -656,7 +654,7 @@
     lastW = now;
   });
 
-  // Sanftes Scrollen mit Offset für festen Header (alle #Anker)
+  // Sanftes Scrollen mit Offset für festen Header (alle #Anker, inkl. Quick-Buttons)
   const headerHeight = document.querySelector('header').offsetHeight + 8;
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
