@@ -144,7 +144,7 @@
     .slogan{color:#e8d69a;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
     .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick Buttons – neue Optik: weniger rund, weißer, goldener Rand */
+    /* Quick Buttons – weniger rund, weißer, goldener Rand */
     .quick-cards{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad) 36px;display:grid;gap:10px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
@@ -153,7 +153,7 @@
       position:relative;overflow:hidden;justify-self:stretch;text-align:center;
       background:linear-gradient(145deg, rgba(255,255,255,.94), rgba(250,252,250,.92));
       border:1.5px solid rgba(212,175,55,.55);
-      border-radius:18px;                 /* weniger rund */
+      border-radius:18px;
       padding:12px 16px;
       min-height:50px;
       display:flex;align-items:center;justify-content:center;gap:12px;
@@ -177,8 +177,8 @@
     }
 
     .q-icon{
-      width:28px;height:28px;flex:0 0 28px;        /* größer */
-      stroke:#bfa14e; /* dezentes Gold */
+      width:28px;height:28px;flex:0 0 28px;
+      stroke:#bfa14e;
       stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
       filter:drop-shadow(0 2px 4px rgba(12,57,34,.10));
       transition:transform .28s ease, filter .28s ease;
@@ -186,9 +186,18 @@
     }
     .q-icon--sparkle{margin-right:2px}
 
+    /* NUR MOBILE OPTIMIERUNG (Buttons schmaler, text-füllend) */
     @media(max-width:520px){
-      .q-card{gap:10px;padding:12px 14px;width:100%}
-      .q-icon{width:24px;height:24px;flex-basis:24px}  /* mobil etwas kleiner, damit Text den Button füllt */
+      .quick-cards{justify-items:center}
+      .q-card{
+        justify-self:center;
+        width:auto;              /* keine volle Breite */
+        max-width:96%;           /* schützt vor Überbreite */
+        padding:10px 12px;       /* schmaler */
+        min-height:auto;
+      }
+      .q-icon{width:24px;height:24px;flex-basis:24px}
+      .q-label{display:block;text-align:center}
     }
 
     .q-card::before{
@@ -206,7 +215,7 @@
       }
       .q-card:hover .q-icon{
         transform:scale(1.06);
-        filter: drop-shadow(0 0 10px rgba(212,175,55,.35)) drop-shadow(0 2px 4px rgba(12,57,34,.14));  /* dezentes Glühen */
+        filter: drop-shadow(0 0 10px rgba(212,175,55,.35)) drop-shadow(0 2px 4px rgba(12,57,34,.14));
       }
       .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.9}
     }
@@ -265,7 +274,7 @@
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a;font-size:1rem}
     textarea{min-height:140px}
 
-    /* Submit – translucent & edel (etwas weniger Gold) */
+    /* Submit – translucent & edel */
     .submit{
       display:inline-block;
       font-weight:800;border:1px solid rgba(212,175,55,.38);padding:12px 18px;border-radius:14px;
@@ -634,7 +643,7 @@
     btn.setAttribute('aria-expanded', String(open));
     btn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
     menu.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : ''; // Scroll sperren, wenn offen
+    document.body.style.overflow = open ? 'hidden' : '';
   }
 
   btn.addEventListener('click', () => {
@@ -659,7 +668,7 @@
     lastW = now;
   });
 
-  // Sanftes Scrollen mit Offset für festen Header (alle #Anker, inkl. Quick-Buttons)
+  // Sanftes Scrollen mit Offset für festen Header
   const headerHeight = document.querySelector('header').offsetHeight + 8;
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
