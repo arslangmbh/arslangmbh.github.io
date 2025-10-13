@@ -6,17 +6,25 @@
   <title>Arslan GmbH – Baudienstleistungen aus einer Hand</title>
   <meta name="description" content="Arslan GmbH: Hoch- & Innenbau, Außenanlagen, Gebäudereinigung & Objektbetreuung, Metall & Schweißen – Meisterbetrieb seit über 20 Jahren.">
   <meta name="robots" content="index,follow">
+
+  <!-- Open Graph / Social Preview -->
   <meta property="og:title" content="Arslan GmbH – Baudienstleistungen aus einer Hand">
-  <meta property="og:description" content="Meisterbetrieb seit über 20 Jahren – zuverlässig, sauber, termintreu.">
+  <meta property="og:description" content="Meisterbetrieb seit über 20 Jahren im Rhein-Main-Gebiet. Hoch- & Innenbau, Außenanlagen, Gebäudereinigung & Objektbetreuung, Metall & Schweißen.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:url" content="https://arslan-gmbh.de">
+  <meta property="og:image" content="https://arslan-gmbh.de/img/hochbau.jpg">
+
   <link rel="canonical" href="https://arslan-gmbh.de">
 
- <!-- Favicon -->
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#1f6b46">
+  <!-- Favicon: Logo als Datei (empfohlen) -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1f6b46">
 
+  <!-- Schriften (UI-Verbesserung) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -30,7 +38,7 @@
       --gold-600:#c39a2e;
       --gold-500:#d4af37;
       --gold-300:#e6c976;
-      --ink:#0f172a;
+      --ink:#0b1a14;
       --muted:#46535e;
       --line:#e2ebe4;
       --surface:#ffffff;
@@ -40,57 +48,74 @@
       --maxw:1140px;
       --pad:clamp(16px,4vw,60px);
       --shadow:0 16px 38px rgba(12,57,34,.14);
+      --focus: 2px solid #d4af37;
     }
 
     *{box-sizing:border-box}
     html,body{
-      margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
-      color:var(--ink);line-height:1.6;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Noto Sans", Arial, sans-serif;
+      color:var(--ink);line-height:1.65;
       background:
         radial-gradient(1200px 600px at 18% -6%, rgba(212,175,55,.12) 0%, rgba(212,175,55,0) 60%),
         linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
-      -webkit-text-size-adjust:100%;text-size-adjust:100%;
-      scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+      scroll-behavior:smooth; /* sanftes Scrollen */
     }
     img{max-width:100%;display:block;border-radius:14px;height:auto}
     a{color:var(--green-700);text-decoration:none}
     a:hover{color:var(--green-600);text-decoration:underline}
+    :focus-visible{outline:var(--focus); outline-offset:3px}
 
-    /* Header */
-    header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86));border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
-    .nav{max-width:var(--maxw);margin:auto;padding:10px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:18px}
+    /* Header (UX: transluzent + Shadow) */
+    header{
+      position:sticky;top:0;z-index:100;
+      background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86));
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(8px);
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+    }
+    .nav{
+      max-width:var(--maxw);margin:auto;
+      padding:12px var(--pad);
+      display:flex;align-items:center;justify-content:space-between;gap:18px
+    }
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
-    .brand .namewrap{display:flex;flex-direction:column;line-height:1.1}
-    .brand .wordmark{
+    .namewrap{display:flex;flex-direction:column;line-height:1.05}
+    .wordmark{
       font-weight:900;letter-spacing:.04em;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
       text-transform:uppercase;font-size:clamp(1rem,2.4vw,1.15rem);
     }
-    .brand .tagline{
+    .tagline{
       margin-top:2px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
     }
 
+    /* Logo im Header */
+    .logo svg{filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
+    .logo circle{opacity:.85}
+
     /* Hamburger */
     .menu-toggle{display:none;appearance:none;border:none;background:transparent;padding:10px;margin:-6px;border-radius:12px;cursor:pointer}
-    .menu-toggle:focus-visible{outline:2px solid var(--gold-500);outline-offset:2px}
     .menu-toggle svg{width:28px;height:28px;stroke:var(--green-900);stroke-width:2.2;fill:none;stroke-linecap:round;transition:transform .25s ease}
-    .menu-toggle[aria-expanded="true"] svg .line2{opacity:0}
-    .menu-toggle[aria-expanded="true"] svg .line1{transform:translateY(6px) rotate(45deg);transform-origin:12px 12px}
-    .menu-toggle[aria-expanded="true"] svg .line3{transform:translateY(-6px) rotate(-45deg);transform-origin:12px 12px}
+    .menu-toggle[aria-expanded="true"] .line2{opacity:0}
+    .menu-toggle[aria-expanded="true"] .line1{transform:translateY(6px) rotate(45deg);transform-origin:12px 12px}
+    .menu-toggle[aria-expanded="true"] .line3{transform:translateY(-6px) rotate(-45deg);transform-origin:12px 12px}
 
     .menu{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .menu a{color:var(--green-900);font-weight:700;padding:8px 10px;border-radius:10px}
     .menu a:active{background:rgba(31,107,70,.08)}
 
-    /* Mobile Menü Zustand + Animation (Opacity/Slide) */
+    /* Mobile Menü + sanftes Fade/Slide */
     @media(max-width:860px){
       .nav{gap:8px}
       .menu-toggle{display:inline-grid;place-items:center}
       .menu{
-        position:fixed;left:var(--pad);right:var(--pad);top:64px;
+        position:fixed;left:var(--pad);right:var(--pad);top:68px;
         flex-direction:column;gap:8px;
         background:#fff;border:1px solid var(--line);border-radius:16px;
         padding:12px;box-shadow:0 18px 36px rgba(12,57,34,.16);
@@ -112,18 +137,21 @@
       background-size:cover;background-position:center;
       border-bottom:1px solid var(--line);
     }
-    .hero-inner{max-width:var(--maxw);margin:auto;padding:48px var(--pad) 22px;display:grid;gap:8px}
+    .hero::after{ /* leichte Aufhellung für bessere Lesbarkeit */
+      content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 60%);
+    }
+    .hero-inner{position:relative;z-index:1;max-width:var(--maxw);margin:auto;padding:56px var(--pad) 24px;display:grid;gap:10px}
     .slogan{color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
-    .hero h1{margin:6px 0 0;font-size:clamp(24px,6vw,48px);line-height:1.1}
+    .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick cards (Sprunganker) */
-    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad) 30px;display:grid;gap:12px}
+    /* Quick cards (Sprunganker) – edler Hover */
+    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad) 36px;display:grid;gap:12px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
 
     .q-card{
       position:relative;overflow:hidden;
-      background:linear-gradient(145deg, rgba(255,255,255,.92), rgba(240,248,244,.9));
+      background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,248,244,.94));
       border:1px solid var(--line);border-radius:18px;padding:16px 14px;
       display:flex;align-items:center;justify-content:center;gap:10px;
       font-weight:900;text-align:center;box-shadow:var(--shadow);
@@ -131,15 +159,8 @@
       transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease;
       touch-action:manipulation;
     }
-    .q-card:focus-visible{outline:3px solid rgba(212,175,55,.6);outline-offset:3px}
-
-    /* WICHTIG: Text in den Quick-Cards darf umbrechen */
-    .q-card .q-label{
-      white-space:normal;       /* vorher: nowrap -> führte zum Abschneiden */
-      word-break:break-word;    /* lange Wörter umbrechen */
-      max-width:16ch;           /* angenehme Blockbreite für 2 Zeilen */
-      line-height:1.2;
-    }
+    .q-card:focus-visible{outline:var(--focus)}
+    .q-label{white-space:normal; /* Wrap für lange Titel */ }
 
     .q-icon{
       width:26px;height:26px;flex:0 0 26px;
@@ -148,8 +169,7 @@
       transition:transform .35s ease;
       display:block;
     }
-    /* Sparkle-Icon näher an den Text */
-    .q-icon--sparkle{margin-right:-2px}
+    .q-icon--sparkle{margin-right:-2px} /* Sparkle näher an Text */
 
     .q-card::before{
       content:"";position:absolute;inset:-20%;transform:skewX(-20deg) translateX(-120%);
@@ -161,19 +181,19 @@
         transform:translateY(-6px) scale(1.02);
         box-shadow:0 22px 48px rgba(12,57,34,.18);
         border-color:rgba(212,175,55,.45);
-        background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,248,244,.94));
+        background:linear-gradient(145deg, rgba(255,255,255,.98), rgba(240,248,244,.96));
       }
       .q-card:hover .q-icon{transform:scale(1.08)}
       .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.9}
     }
 
-    /* Sections */
-    section{padding:36px var(--pad)}
-    @media(min-width:920px){section{padding:46px var(--pad)}}
+    /* Abschnitte */
+    section{padding:48px var(--pad)}
+    @media(min-width:920px){section{padding:60px var(--pad)}}
     .container{max-width:var(--maxw);margin:auto}
-    .section-head{margin-bottom:14px}
+    .section-head{margin-bottom:16px}
     .section-head span{display:inline-block;color:var(--green-700);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.86rem}
-    .section-head h2{margin:6px 0 0;font-size:clamp(20px,5vw,32px);color:var(--green-900)}
+    .section-head h2{margin:6px 0 0;font-size:clamp(22px,5vw,34px);color:var(--green-900)}
 
     /* Portfolio */
     .grid{display:grid;gap:16px}
@@ -197,8 +217,8 @@
         url('img/team.jpg');
       background-size:cover;background-position:center;
     }
-    .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:20px;box-shadow:var(--shadow)}
-    @media(min-width:920px){.about-card{padding:24px}}
+    .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:22px;box-shadow:var(--shadow)}
+    @media(min-width:920px){.about-card{padding:26px}}
 
     /* Kontakt */
     #kontakt{
@@ -207,23 +227,39 @@
         url('img/telefon.jpg');
       background-size:cover;background-position:center;
     }
-    .contact-grid{display:grid;gap:14px}
+    .contact-grid{display:grid;gap:16px}
     @media(min-width:880px){.contact-grid{grid-template-columns:1fr 1fr;gap:18px}}
     .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
     label{font-weight:600}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a;font-size:1rem}
     textarea{min-height:140px}
-    .submit{display:inline-block;background:var(--green-700);color:#fff;font-weight:800;border:1px solid #1a5b3b;padding:12px 18px;border-radius:999px}
-    .submit:hover{background:var(--green-600)}
+    .submit{
+      display:inline-block;
+      font-weight:800;border:1px solid #1a5b3b;padding:12px 18px;border-radius:999px;
+      color:#0b291e;background:
+        linear-gradient(135deg, #fef6d0, #e4c46b 45%, #caa24a 70%, #a77f2d 100%);
+      box-shadow: 0 8px 18px rgba(12,57,34,.12);
+      text-transform:uppercase;letter-spacing:.08em
+    }
+    .submit:hover{filter:brightness(1.03)}
     .submit:active{transform:translateY(1px)}
 
     /* Map-Embed */
     .map-embed{margin-top:10px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
     .map-embed iframe{display:block;width:100%;height:220px;border:0}
 
+    /* Legal */
+    #impressum .card p{margin-top:.4rem;margin-bottom:.4rem}
+
     /* Footer */
-    footer{border-top:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86))}
-    footer .container{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;color:rgba(12,57,34,.76);padding:16px;letter-spacing:.08em;text-transform:uppercase;font-size:.84rem}
+    footer{
+      border-top:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86))
+    }
+    footer .container{
+      display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+      color:rgba(12,57,34,.76);padding:16px;letter-spacing:.08em;text-transform:uppercase;font-size:.84rem
+    }
 
     /* Bewegungen reduzieren */
     @media (prefers-reduced-motion: reduce) {
@@ -259,9 +295,9 @@
 <!-- Header -->
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="brand" href="#home" aria-label="Startseite Arslan GmbH">
-      <!-- Logo -->
-      <svg viewBox="0 0 200 200" width="58" height="58" xmlns="http://www.w3.org/2000/svg" aria-label="Arslan GmbH Logo" role="img" style="filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))">
+    <a class="brand logo" href="#home" aria-label="Startseite Arslan GmbH">
+      <!-- Logo: Goldenes A vor Ring -->
+      <svg viewBox="0 0 200 200" width="58" height="58" xmlns="http://www.w3.org/2000/svg" aria-label="Arslan GmbH Logo" role="img">
         <defs>
           <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#fff8cc"/>
@@ -271,17 +307,20 @@
           </linearGradient>
           <radialGradient id="shine" cx="30%" cy="25%" r="65%">
             <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
-            <stop offset="40%" stop-color="rgba(255,255,255,0.4)"/>
+            <stop offset="40%" stop-color="rgba(255,255,255,0.35)"/>
             <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
           </radialGradient>
           <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="rgba(0,0,0,0.35)"/>
           </filter>
         </defs>
-        <circle cx="100" cy="102" r="78" fill="none" stroke="url(#goldGradient)" stroke-width="5" opacity="0.8" filter="url(#shadow)"/>
-        <path d="M100 25 L42 175 H68 L84 135 H116 L132 175 H158 L100 25 Z M100 60 L123 125 H77 L100 60 Z"
-              fill="url(#goldGradient)" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linejoin="round" filter="url(#shadow)"/>
-        <ellipse cx="80" cy="55" rx="45" ry="30" fill="url(#shine)" />
+        <!-- Ring (hinter A) -->
+        <circle cx="100" cy="102" r="72" fill="none" stroke="url(#goldGradient)" stroke-width="5" opacity="0.9" filter="url(#shadow)"/>
+        <!-- Großes A (im Vordergrund) -->
+        <path d="M100 22 L34 178 H64 L84 132 H116 L136 178 H166 L100 22 Z
+                 M100 56 L124 124 H76 L100 56 Z"
+              fill="url(#goldGradient)" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round" filter="url(#shadow)"/>
+        <ellipse cx="80" cy="52" rx="42" ry="28" fill="url(#shine)" />
       </svg>
       <div class="namewrap">
         <div class="wordmark">Arslan GmbH</div>
@@ -356,7 +395,7 @@
         <!-- 1) Hoch- & Innenbau -->
         <article class="port-card" id="p-hochbau">
           <div class="port-media">
-            <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk" loading="lazy" decoding="async"></div>
+            <div class="tile"><img src="img/innenausbau.jpg" alt="Innenausbau – präzises Arbeiten am Ständerwerk (Arslan GmbH)" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Hoch- &amp; Innenbau</h3>
@@ -372,7 +411,7 @@
         <!-- 2) Außenanlagen -->
         <article class="port-card" id="p-aussen">
           <div class="port-media">
-            <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau" loading="lazy" decoding="async"></div>
+            <div class="tile"><img src="img/gartenbau.jpg" alt="Außenanlagen – Garten- & Landschaftsbau (Arslan GmbH)" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Außenanlagen</h3>
@@ -387,7 +426,7 @@
         <!-- 3) Gebäudereinigung & Objektbetreuung -->
         <article class="port-card" id="p-reinigung">
           <div class="port-media">
-            <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung" loading="lazy" decoding="async"></div>
+            <div class="tile"><img src="img/gebaeudereinigung.jpg" alt="Gebäudereinigung – Glas- & Fassadenreinigung (Arslan GmbH)" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Gebäudereinigung &amp; Objektbetreuung</h3>
@@ -404,7 +443,7 @@
         <!-- 4) Metall & Schweißen -->
         <article class="port-card" id="p-metall">
           <div class="port-media">
-            <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger" loading="lazy" decoding="async"></div>
+            <div class="tile"><img src="img/schweissen.jpg" alt="Metall & Schweißen – Arbeiten am Stahlträger (Arslan GmbH)" loading="lazy" decoding="async"></div>
           </div>
           <div class="port-body">
             <h3><span class="dot" aria-hidden="true"></span> Metall &amp; Schweißen</h3>
@@ -469,35 +508,55 @@
           </div>
         </div>
 
-        <!-- Formular -->
-        <div class="card">
-          <h3 style="margin-top:0">Kontaktformular</h3>
-          <form class="form" action="mailto:arslangmbh@gmx.net" method="post" enctype="text/plain">
+        <!-- Formular (Formspree) -->
+        <div class="card" aria-labelledby="kontaktform-heading">
+          <h3 id="kontaktform-heading" style="margin-top:0">Kontaktformular</h3>
+
+          <!--
+            Formspree einrichten:
+            1) formspree.io → neues Formular → Endpoint-ID kopieren
+            2) unten <DEIN_FORM_ID> durch deine ID ersetzen
+          -->
+          <form id="contact-form" class="form" action="https://formspree.io/f/DEIN_FORM_ID" method="POST">
+            <!-- Spam-Honeypot -->
+            <input type="text" name="_gotcha" style="display:none">
+
             <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
               <div>
                 <label for="fname">Vor- und Nachname</label>
-                <input id="fname" name="Name" required>
+                <input id="fname" name="Name" required autocomplete="name">
               </div>
               <div>
                 <label for="fmail">E-Mail</label>
-                <input id="fmail" name="E-Mail" type="email" required>
+                <input id="fmail" name="E-Mail" type="email" required autocomplete="email" inputmode="email">
               </div>
             </div>
+
             <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:12px">
               <div>
                 <label for="fphone">Telefon (optional)</label>
-                <input id="fphone" name="Telefon" inputmode="tel">
+                <input id="fphone" name="Telefon" inputmode="tel" autocomplete="tel">
               </div>
               <div>
                 <label for="fsubject">Betreff</label>
                 <input id="fsubject" name="Betreff" required>
               </div>
             </div>
+
             <div style="margin-top:12px">
               <label for="fmsg">Nachricht</label>
               <textarea id="fmsg" name="Nachricht" required></textarea>
             </div>
-            <button class="submit" type="submit" style="margin-top:10px">Nachricht senden</button>
+
+            <!-- Formspree-Einstellungen -->
+            <input type="hidden" name="_subject" value="Neue Anfrage über arslan-gmbh.de">
+            <input type="hidden" name="_language" value="de">
+            <input type="hidden" name="_replyto" value="">
+
+            <button class="submit" type="submit" style="margin-top:12px">Nachricht senden</button>
+
+            <!-- Status-Feedback für User (A11y) -->
+            <p id="form-status" role="status" aria-live="polite" style="margin:.6rem 0 0;color:var(--green-800);font-weight:600"></p>
           </form>
         </div>
       </div>
@@ -523,9 +582,9 @@
         <hr style="border:none;border-top:1px solid var(--line);margin:10px 0 14px">
 
         <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, 
-        Tel.: 06102-8688109, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>. 
-        Bei Kontaktaufnahme per E-Mail oder Formular verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage 
-        (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten 
+        Tel.: 06102-8688109, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>.
+        Bei Kontaktaufnahme per E-Mail oder Formular verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage
+        (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten
         erforderlich ist. Es werden keine Analyse-/Tracking-Cookies gesetzt.</p>
       </div>
     </div>
@@ -573,6 +632,57 @@
     const now = window.innerWidth;
     if (lastW <= 860 && now > 860) setMenu(false);
     lastW = now;
+  });
+
+  // Formular: sanfter Submit via Fetch zu Formspree (bleibt auf Seite)
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    // Falls noch keine Formspree-ID eingetragen ist, normal abschicken (um Fehlersuche zu erleichtern)
+    const endpoint = form.getAttribute('action') || '';
+    if (endpoint.includes('DEIN_FORM_ID')) return; // lässt Standard-POST zu Formspree zu (zeigt dann deren Fehlerseite)
+    e.preventDefault();
+    status.textContent = 'Sende Nachricht …';
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.style.color = 'var(--green-800)';
+        status.textContent = 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.';
+      } else {
+        status.style.color = '#8c1a1a';
+        status.textContent = 'Leider gab es ein Problem beim Senden. Bitte versuchen Sie es später erneut.';
+      }
+    } catch (err) {
+      status.style.color = '#8c1a1a';
+      status.textContent = 'Verbindung fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung.';
+    }
+  });
+
+  // Sanftes Scrollen mit Offset für festen Header
+  // (Wenn Nutzer auf einen #Anker klickt)
+  const headerHeight = document.querySelector('header').offsetHeight + 8;
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const id = this.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          const y = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+          history.pushState(null, '', id);
+        }
+      }
+    });
   });
 </script>
 </body>
