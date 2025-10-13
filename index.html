@@ -143,7 +143,14 @@
       touch-action:manipulation;
     }
     .q-card:focus-visible{outline:3px solid rgba(212,175,55,.6);outline-offset:3px}
-    .q-card .q-label{white-space:nowrap}
+
+    /* WICHTIG: Text in den Quick-Cards darf umbrechen */
+    .q-card .q-label{
+      white-space:normal;       /* vorher: nowrap -> führte zum Abschneiden */
+      word-break:break-word;    /* lange Wörter umbrechen */
+      max-width:16ch;           /* angenehme Blockbreite für 2 Zeilen */
+      line-height:1.2;
+    }
 
     .q-icon{
       width:26px;height:26px;flex:0 0 26px;
