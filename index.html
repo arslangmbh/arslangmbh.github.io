@@ -17,7 +17,7 @@
 
   <link rel="canonical" href="https://arslan-gmbh.de">
 
-  <!-- Favicon (Logo-Datei) -->
+  <!-- Favicon (separate Datei /favicon.svg im Repo) -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#1f6b46">
 
@@ -149,36 +149,42 @@
     .slogan{color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
     .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick Buttons (neu, edle Pill-Buttons mit Goldrand) */
+    /* Quick Buttons – edlere, gold-transparente Pills mit Icon-Glow */
     .quick-cards{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad) 36px;display:grid;gap:10px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
 
     .q-card{
-      position:relative;overflow:hidden;justify-self:center;
-      /* Zweifacher Background: Fläche + Goldrand */
+      position:relative;overflow:hidden;justify-self:center;text-align:center;
       background:
-        linear-gradient(145deg, rgba(255,255,255,.98), rgba(240,248,244,.96)) padding-box,
+        linear-gradient(145deg, rgba(255,248,204,.28), rgba(230,197,111,.16)) padding-box,
         linear-gradient(135deg, #fff3c6, #e6c56f 45%, #caa24a 70%, #a77f2d 100%) border-box;
       border:1.5px solid transparent;
       border-radius:999px;
       padding:10px 14px; /* schmaler */
       min-height:42px;
       display:flex;align-items:center;justify-content:center;gap:8px;
-      font-weight:900;text-align:center;box-shadow:var(--shadow);
-      color:var(--green-900);transform:translateZ(0);
+      font-weight:900;box-shadow:var(--shadow);
+      color:var(--green-900);
+      transform:translateZ(0);
       transition:transform .35s ease, box-shadow .35s ease, filter .35s ease, background .35s ease;
       touch-action:manipulation;
-      max-width: 100%;
+      max-width:100%;
+      backdrop-filter: blur(2px);
+      text-wrap: balance;
     }
     .q-card:focus-visible{outline:var(--focus)}
-    .q-label{white-space:nowrap;line-height:1.15}
+    .q-label{
+      /* Wrap erlaubt, damit lange Texte (z.B. Gebäudereinigung & Objektbetreuung) nicht abgeschnitten werden */
+      white-space:normal; line-height:1.15;
+    }
 
     .q-icon{
       width:22px;height:22px;flex:0 0 22px;
       stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
-      filter:drop-shadow(0 6px 10px rgba(12,57,34,.12));
-      transition:transform .35s ease;display:block;margin-right:2px;
+      filter:drop-shadow(0 2px 4px rgba(12,57,34,.12));
+      transition:transform .35s ease, filter .35s ease;
+      display:block;margin-right:2px;
     }
     .q-icon--sparkle{margin-right:2px}
 
@@ -195,10 +201,17 @@
     @media (hover:hover){
       .q-card:hover{
         transform:translateY(-5px);
-        box-shadow:0 20px 44px rgba(12,57,34,.18), 0 0 0 2px rgba(212,175,55,.25) inset;
-        filter: drop-shadow(0 4px 8px rgba(212,175,55,.25));
+        box-shadow:0 20px 44px rgba(12,57,34,.18), 0 0 0 2px rgba(212,175,55,.20) inset;
+        filter: drop-shadow(0 4px 8px rgba(212,175,55,.22));
+        background:
+          linear-gradient(145deg, rgba(255,248,204,.34), rgba(230,197,111,.22)) padding-box,
+          linear-gradient(135deg, #fff7da, #eed182 45%, #d4b35a 70%, #b1872c 100%) border-box;
       }
-      .q-card:hover .q-icon{transform:scale(1.06)}
+      .q-card:hover .q-icon{
+        transform:scale(1.06);
+        /* dezentes Icon-Glühen */
+        filter: drop-shadow(0 0 8px rgba(212,175,55,.55)) drop-shadow(0 2px 4px rgba(12,57,34,.16));
+      }
       .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.95}
     }
 
@@ -248,15 +261,24 @@
     label{font-weight:600}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0f172a;font-size:1rem}
     textarea{min-height:140px}
+
+    /* Submit: weniger gold, translucent & edel */
     .submit{
       display:inline-block;
-      font-weight:800;border:1px solid #1a5b3b;padding:12px 18px;border-radius:999px;
-      color:#0b291e;background:
-        linear-gradient(135deg, #fef6d0, #e4c46b 45%, #caa24a 70%, #a77f2d 100%);
-      box-shadow: 0 8px 18px rgba(12,57,34,.12);
-      text-transform:uppercase;letter-spacing:.08em
+      font-weight:800;border:1px solid rgba(212,175,55,.55);padding:12px 18px;border-radius:999px;
+      color:var(--green-800);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.65), rgba(230,244,237,.45));
+      box-shadow: 0 8px 18px rgba(12,57,34,.10), inset 0 0 0 1px rgba(255,255,255,.35);
+      text-transform:uppercase;letter-spacing:.08em;
+      backdrop-filter: blur(6px);
+      transition: filter .25s ease, transform .15s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .submit:hover{filter:brightness(1.03)}
+    .submit:hover{
+      filter:brightness(1.03);
+      box-shadow: 0 10px 22px rgba(12,57,34,.14), 0 0 0 2px rgba(212,175,55,.20) inset;
+      border-color: rgba(212,175,55,.75);
+    }
     .submit:active{transform:translateY(1px)}
 
     /* Map-Embed */
