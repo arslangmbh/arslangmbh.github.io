@@ -17,11 +17,11 @@
 
   <link rel="canonical" href="https://arslan-gmbh.de">
 
-  <!-- Favicon: Logo als Datei (empfohlen) -->
+  <!-- Favicon (Logo-Datei) -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#1f6b46">
 
-  <!-- Schriften (UI-Verbesserung) -->
+  <!-- Schrift -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
       --maxw:1140px;
       --pad:clamp(16px,4vw,60px);
       --shadow:0 16px 38px rgba(12,57,34,.14);
-      --focus: 2px solid #d4af37;
+      --focus:2px solid #d4af37;
     }
 
     *{box-sizing:border-box}
@@ -61,14 +61,14 @@
         linear-gradient(180deg, #ffffff 0%, #fdf7ed 38%, #eef6f2 100%);
       -webkit-text-size-adjust:100%;
       text-size-adjust:100%;
-      scroll-behavior:smooth; /* sanftes Scrollen */
+      scroll-behavior:smooth;
     }
     img{max-width:100%;display:block;border-radius:14px;height:auto}
     a{color:var(--green-700);text-decoration:none}
-    a:hover{color:var(--green-600);text-decoration:underline}
+    a:hover{color:var(--green-600);text-decoration:none}
     :focus-visible{outline:var(--focus); outline-offset:3px}
 
-    /* Header (UX: transluzent + Shadow) */
+    /* Header */
     header{
       position:sticky;top:0;z-index:100;
       background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(230,244,237,.86));
@@ -82,20 +82,21 @@
       display:flex;align-items:center;justify-content:space-between;gap:18px
     }
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
-    .namewrap{display:flex;flex-direction:column;line-height:1.05}
+    .namewrap{display:flex;flex-direction:column;line-height:1.02}
+    /* Wortmarke jetzt deutlich größer als Tagline */
     .wordmark{
       font-weight:900;letter-spacing:.04em;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-transform:uppercase;font-size:clamp(1rem,2.4vw,1.15rem);
+      text-transform:uppercase;font-size:clamp(1.15rem,3vw,1.45rem);
     }
     .tagline{
-      margin-top:2px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;
+      margin-top:2px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+      font-size:.68rem; /* bewusst kleiner */
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
     }
 
-    /* Logo im Header */
     .logo svg{filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
     .logo circle{opacity:.85}
 
@@ -110,7 +111,7 @@
     .menu a{color:var(--green-900);font-weight:700;padding:8px 10px;border-radius:10px}
     .menu a:active{background:rgba(31,107,70,.08)}
 
-    /* Mobile Menü + sanftes Fade/Slide */
+    /* Mobile Menü */
     @media(max-width:860px){
       .nav{gap:8px}
       .menu-toggle{display:inline-grid;place-items:center}
@@ -137,14 +138,12 @@
       background-size:cover;background-position:center;
       border-bottom:1px solid var(--line);
     }
-    .hero::after{ /* leichte Aufhellung für bessere Lesbarkeit */
-      content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 60%);
-    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 60%)}
     .hero-inner{position:relative;z-index:1;max-width:var(--maxw);margin:auto;padding:56px var(--pad) 24px;display:grid;gap:10px}
     .slogan{color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
     .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick cards (Sprunganker) – edler Hover */
+    /* Quick Cards */
     .quick-cards{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad) 36px;display:grid;gap:12px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
@@ -152,7 +151,7 @@
     .q-card{
       position:relative;overflow:hidden;
       background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,248,244,.94));
-      border:1px solid var(--line);border-radius:18px;padding:16px 14px;
+      border:1px solid var(--line);border-radius:18px;padding:14px 12px;
       display:flex;align-items:center;justify-content:center;gap:10px;
       font-weight:900;text-align:center;box-shadow:var(--shadow);
       color:var(--green-900);transform:translateZ(0);
@@ -160,16 +159,22 @@
       touch-action:manipulation;
     }
     .q-card:focus-visible{outline:var(--focus)}
-    .q-label{white-space:normal; /* Wrap für lange Titel */ }
+    .q-label{white-space:normal;line-height:1.2}
 
     .q-icon{
       width:26px;height:26px;flex:0 0 26px;
       stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
       filter:drop-shadow(0 6px 10px rgba(12,57,34,.12));
-      transition:transform .35s ease;
-      display:block;
+      transition:transform .35s ease;display:block;margin-right:2px;
     }
-    .q-icon--sparkle{margin-right:-2px} /* Sparkle näher an Text */
+    /* Sparkle-Icon: Abstand korrigiert (nicht mehr zu weit weg) */
+    .q-icon--sparkle{margin-right:2px}
+
+    /* Mobile: Icons minimal kleiner, engerer Gap */
+    @media(max-width:520px){
+      .q-card{gap:8px;padding:12px}
+      .q-icon{width:24px;height:24px;flex-basis:24px;margin-right:2px}
+    }
 
     .q-card::before{
       content:"";position:absolute;inset:-20%;transform:skewX(-20deg) translateX(-120%);
@@ -314,9 +319,9 @@
             <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="rgba(0,0,0,0.35)"/>
           </filter>
         </defs>
-        <!-- Ring (hinter A) -->
+        <!-- Ring -->
         <circle cx="100" cy="102" r="72" fill="none" stroke="url(#goldGradient)" stroke-width="5" opacity="0.9" filter="url(#shadow)"/>
-        <!-- Großes A (im Vordergrund) -->
+        <!-- Großes A (Vordergrund) -->
         <path d="M100 22 L34 178 H64 L84 132 H116 L136 178 H166 L100 22 Z
                  M100 56 L124 124 H76 L100 56 Z"
               fill="url(#goldGradient)" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linejoin="round" filter="url(#shadow)"/>
@@ -356,14 +361,18 @@
       <h1>Baudienstleistungen aus einer Hand</h1>
     </div>
 
-    <!-- Quick-Cards als Sprunganker -->
+    <!-- Quick-Cards (Sprunganker) -->
     <div class="quick-cards">
       <a class="q-card" href="#p-hochbau" aria-label="Zu Hoch- und Innenbau">
-        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="m8 26 16-12 16 12"/><path d="M14 26v14h20V26"/><path d="M22 40V30h4v10"/></svg>
+        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="m8 26 16-12 16 12"/><path d="M14 26v14h20V26"/><path d="M22 40V30h4v10"/>
+        </svg>
         <span class="q-label">Hoch- &amp; Innenbau</span>
       </a>
       <a class="q-card" href="#p-aussen" aria-label="Zu Außenanlagen">
-        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 26c0-6 4-10 8-10s8 4 8 10"/><path d="M10 30c3-6 10-12 14-12s11 6 14 12"/><path d="M24 30v10"/><path d="M18 40h12"/></svg>
+        <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M16 26c0-6 4-10 8-10s8 4 8 10"/><path d="M10 30c3-6 10-12 14-12s11 6 14 12"/><path d="M24 30v10"/><path d="M18 40h12"/>
+        </svg>
         <span class="q-label">Außenanlagen</span>
       </a>
       <a class="q-card" href="#p-reinigung" aria-label="Zu Gebäudereinigung und Objektbetreuung">
@@ -487,7 +496,7 @@
       </div>
 
       <div class="contact-grid">
-        <!-- Kontaktdaten -->
+        <!-- Kontaktdaten (kein führendes Leerzeichen vor der Adresse) -->
         <div class="card" style="border-width:2px;border-color:#dfe7e3">
           <p><strong>Arslan GmbH</strong><br>
           Werner-Heisenberg Str. 2<br>
@@ -508,19 +517,10 @@
           </div>
         </div>
 
-        <!-- Formular (Formspree) -->
+        <!-- Formular: VARIANTE A (mailto) -->
         <div class="card" aria-labelledby="kontaktform-heading">
           <h3 id="kontaktform-heading" style="margin-top:0">Kontaktformular</h3>
-
-          <!--
-            Formspree einrichten:
-            1) formspree.io → neues Formular → Endpoint-ID kopieren
-            2) unten <DEIN_FORM_ID> durch deine ID ersetzen
-          -->
-          <form id="contact-form" class="form" action="https://formspree.io/f/DEIN_FORM_ID" method="POST">
-            <!-- Spam-Honeypot -->
-            <input type="text" name="_gotcha" style="display:none">
-
+          <form class="form" action="mailto:arslangmbh@gmx.net" method="POST" enctype="text/plain">
             <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
               <div>
                 <label for="fname">Vor- und Nachname</label>
@@ -531,7 +531,6 @@
                 <input id="fmail" name="E-Mail" type="email" required autocomplete="email" inputmode="email">
               </div>
             </div>
-
             <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:12px">
               <div>
                 <label for="fphone">Telefon (optional)</label>
@@ -542,21 +541,12 @@
                 <input id="fsubject" name="Betreff" required>
               </div>
             </div>
-
             <div style="margin-top:12px">
               <label for="fmsg">Nachricht</label>
               <textarea id="fmsg" name="Nachricht" required></textarea>
             </div>
-
-            <!-- Formspree-Einstellungen -->
-            <input type="hidden" name="_subject" value="Neue Anfrage über arslan-gmbh.de">
-            <input type="hidden" name="_language" value="de">
-            <input type="hidden" name="_replyto" value="">
-
             <button class="submit" type="submit" style="margin-top:12px">Nachricht senden</button>
-
-            <!-- Status-Feedback für User (A11y) -->
-            <p id="form-status" role="status" aria-live="polite" style="margin:.6rem 0 0;color:var(--green-800);font-weight:600"></p>
+            <p style="margin:.6rem 0 0;color:#5b6a62;font-size:.9rem">Hinweis: Das Absenden öffnet Ihr E-Mail-Programm.</p>
           </form>
         </div>
       </div>
@@ -601,7 +591,7 @@
   // Jahr im Footer
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Mobile Menü Logik mit sanftem Ein-/Ausblenden
+  // Mobile Menü Logik
   const btn = document.querySelector('.menu-toggle');
   const menu = document.getElementById('mainmenu');
 
@@ -617,7 +607,7 @@
     setMenu(!open);
   });
 
-  // Schließen bei ESC oder Link-Klick
+  // ESC & Link-Klick schließt Menü
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
       setMenu(false);
@@ -634,41 +624,7 @@
     lastW = now;
   });
 
-  // Formular: sanfter Submit via Fetch zu Formspree (bleibt auf Seite)
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-
-  form.addEventListener('submit', async (e) => {
-    // Falls noch keine Formspree-ID eingetragen ist, normal abschicken (um Fehlersuche zu erleichtern)
-    const endpoint = form.getAttribute('action') || '';
-    if (endpoint.includes('DEIN_FORM_ID')) return; // lässt Standard-POST zu Formspree zu (zeigt dann deren Fehlerseite)
-    e.preventDefault();
-    status.textContent = 'Sende Nachricht …';
-
-    try {
-      const data = new FormData(form);
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data
-      });
-
-      if (res.ok) {
-        form.reset();
-        status.style.color = 'var(--green-800)';
-        status.textContent = 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.';
-      } else {
-        status.style.color = '#8c1a1a';
-        status.textContent = 'Leider gab es ein Problem beim Senden. Bitte versuchen Sie es später erneut.';
-      }
-    } catch (err) {
-      status.style.color = '#8c1a1a';
-      status.textContent = 'Verbindung fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung.';
-    }
-  });
-
-  // Sanftes Scrollen mit Offset für festen Header
-  // (Wenn Nutzer auf einen #Anker klickt)
+  // Sanftes Scrollen mit Offset für festen Header (alle #Anker)
   const headerHeight = document.querySelector('header').offsetHeight + 8;
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
