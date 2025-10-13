@@ -144,7 +144,7 @@
     .slogan{color:#e8d69a;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
     .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick Buttons – weniger rund, weißer, goldener Rand */
+    /* Quick Buttons */
     .quick-cards{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad) 36px;display:grid;gap:10px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
@@ -186,7 +186,7 @@
     }
     .q-icon--sparkle{margin-right:2px}
 
-    /* NUR MOBILE OPTIMIERUNG (Buttons schmaler, text-füllend) */
+    /* >>> NUR MOBILE: Buttons schmaler, text-füllend (Default) */
     @media(max-width:520px){
       .quick-cards{justify-items:center}
       .q-card{
@@ -198,6 +198,14 @@
       }
       .q-icon{width:24px;height:24px;flex-basis:24px}
       .q-label{display:block;text-align:center}
+      /* SPEZIAL: „Gebäudereinigung & Objektbetreuung“ NICHT umbrechen,
+         damit der Button die Breite komplett füllt */
+      .quick-cards a[href="#p-reinigung"]{
+        max-width:100%;
+      }
+      .quick-cards a[href="#p-reinigung"] .q-label{
+        white-space:nowrap;      /* nicht umbrechen */
+      }
     }
 
     .q-card::before{
