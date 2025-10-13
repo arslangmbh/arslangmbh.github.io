@@ -82,19 +82,25 @@
       display:flex;align-items:center;justify-content:space-between;gap:18px
     }
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
-    .namewrap{display:flex;flex-direction:column;line-height:1.02}
-    /* Wortmarke jetzt deutlich größer als Tagline */
+    .namewrap{
+      display:flex;flex-direction:column;line-height:1.02;
+      align-items:center; /* zentriert Tagline unter Wortmarke */
+    }
+    /* Wortmarke größer als Tagline */
     .wordmark{
       font-weight:900;letter-spacing:.04em;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 40%, #caa24a 70%, #a77f2d 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-transform:uppercase;font-size:clamp(1.15rem,3vw,1.45rem);
+      text-transform:uppercase;font-size:clamp(1.2rem,3vw,1.5rem);
+      display:inline-block;
     }
     .tagline{
-      margin-top:2px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
-      font-size:.68rem; /* bewusst kleiner */
+      margin-top:2px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      font-size:.68rem;
       background:linear-gradient(180deg, #fff3c6 0%, #e6c56f 50%, #caa24a 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
+      align-self:center;text-align:center;white-space:nowrap;
+      max-width:100%;
     }
 
     .logo svg{filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
@@ -139,57 +145,61 @@
       border-bottom:1px solid var(--line);
     }
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 60%)}
-    .hero-inner{position:relative;z-index:1;max-width:var(--maxw);margin:auto;padding:56px var(--pad) 24px;display:grid;gap:10px}
+    .hero-inner{position:relative;z-index:1;max-width:var(--maxw);margin:auto;padding:56px var(--pad) 20px;display:grid;gap:10px}
     .slogan{color:var(--gold-300);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.86rem}
     .hero h1{margin:6px 0 0;font-size:clamp(26px,6vw,50px);line-height:1.08}
 
-    /* Quick Cards */
-    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:14px var(--pad) 36px;display:grid;gap:12px}
+    /* Quick Buttons (neu, edle Pill-Buttons mit Goldrand) */
+    .quick-cards{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad) 36px;display:grid;gap:10px}
     @media(min-width:520px){.quick-cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:900px){.quick-cards{grid-template-columns:repeat(4,1fr)}}
 
     .q-card{
-      position:relative;overflow:hidden;
-      background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,248,244,.94));
-      border:1px solid var(--line);border-radius:18px;padding:14px 12px;
-      display:flex;align-items:center;justify-content:center;gap:10px;
+      position:relative;overflow:hidden;justify-self:center;
+      /* Zweifacher Background: Fläche + Goldrand */
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.98), rgba(240,248,244,.96)) padding-box,
+        linear-gradient(135deg, #fff3c6, #e6c56f 45%, #caa24a 70%, #a77f2d 100%) border-box;
+      border:1.5px solid transparent;
+      border-radius:999px;
+      padding:10px 14px; /* schmaler */
+      min-height:42px;
+      display:flex;align-items:center;justify-content:center;gap:8px;
       font-weight:900;text-align:center;box-shadow:var(--shadow);
       color:var(--green-900);transform:translateZ(0);
-      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease;
+      transition:transform .35s ease, box-shadow .35s ease, filter .35s ease, background .35s ease;
       touch-action:manipulation;
+      max-width: 100%;
     }
     .q-card:focus-visible{outline:var(--focus)}
-    .q-label{white-space:normal;line-height:1.2}
+    .q-label{white-space:nowrap;line-height:1.15}
 
     .q-icon{
-      width:26px;height:26px;flex:0 0 26px;
+      width:22px;height:22px;flex:0 0 22px;
       stroke:var(--gold-600);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
       filter:drop-shadow(0 6px 10px rgba(12,57,34,.12));
       transition:transform .35s ease;display:block;margin-right:2px;
     }
-    /* Sparkle-Icon: Abstand korrigiert (nicht mehr zu weit weg) */
     .q-icon--sparkle{margin-right:2px}
 
-    /* Mobile: Icons minimal kleiner, engerer Gap */
     @media(max-width:520px){
-      .q-card{gap:8px;padding:12px}
-      .q-icon{width:24px;height:24px;flex-basis:24px;margin-right:2px}
+      .q-card{gap:8px;padding:10px 12px}
+      .q-icon{width:21px;height:21px;flex-basis:21px}
     }
 
     .q-card::before{
-      content:"";position:absolute;inset:-20%;transform:skewX(-20deg) translateX(-120%);
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+      content:"";position:absolute;inset:-30%;transform:skewX(-20deg) translateX(-120%);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);
       opacity:.0;transition:transform .6s ease, opacity .6s ease;pointer-events:none;
     }
     @media (hover:hover){
       .q-card:hover{
-        transform:translateY(-6px) scale(1.02);
-        box-shadow:0 22px 48px rgba(12,57,34,.18);
-        border-color:rgba(212,175,55,.45);
-        background:linear-gradient(145deg, rgba(255,255,255,.98), rgba(240,248,244,.96));
+        transform:translateY(-5px);
+        box-shadow:0 20px 44px rgba(12,57,34,.18), 0 0 0 2px rgba(212,175,55,.25) inset;
+        filter: drop-shadow(0 4px 8px rgba(212,175,55,.25));
       }
-      .q-card:hover .q-icon{transform:scale(1.08)}
-      .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.9}
+      .q-card:hover .q-icon{transform:scale(1.06)}
+      .q-card:hover::before{transform:skewX(-20deg) translateX(140%);opacity:.95}
     }
 
     /* Abschnitte */
@@ -361,7 +371,7 @@
       <h1>Baudienstleistungen aus einer Hand</h1>
     </div>
 
-    <!-- Quick-Cards (Sprunganker) -->
+    <!-- Quick Buttons (Sprunganker) -->
     <div class="quick-cards">
       <a class="q-card" href="#p-hochbau" aria-label="Zu Hoch- und Innenbau">
         <svg class="q-icon" viewBox="0 0 48 48" aria-hidden="true">
@@ -496,7 +506,7 @@
       </div>
 
       <div class="contact-grid">
-        <!-- Kontaktdaten (kein führendes Leerzeichen vor der Adresse) -->
+        <!-- Kontaktdaten -->
         <div class="card" style="border-width:2px;border-color:#dfe7e3">
           <p><strong>Arslan GmbH</strong><br>
           Werner-Heisenberg Str. 2<br>
@@ -517,7 +527,7 @@
           </div>
         </div>
 
-        <!-- Formular: VARIANTE A (mailto) -->
+        <!-- Formular (mailto) -->
         <div class="card" aria-labelledby="kontaktform-heading">
           <h3 id="kontaktform-heading" style="margin-top:0">Kontaktformular</h3>
           <form class="form" action="mailto:arslangmbh@gmx.net" method="POST" enctype="text/plain">
