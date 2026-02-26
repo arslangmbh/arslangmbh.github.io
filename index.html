@@ -17,9 +17,13 @@
 
   <link rel="canonical" href="https://arslan-gmbh.de">
 
-  <!-- Favicon (NEUES Logo als Favicon) -->
-  <link rel="icon" href="/logo.svg.png?v=5" type="image/png">
-  <link rel="apple-touch-icon" href="/logo.svg.png?v=5">
+  <!-- Favicon (gleiches Logo wie Header; Cache-Buster damit Browser wirklich neu lädt) -->
+  <link rel="icon" href="/logo.svg.png?v=6" type="image/png">
+  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="32x32">
+  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="48x48">
+  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="96x96">
+  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/logo.svg.png?v=6" sizes="180x180">
   <meta name="theme-color" content="#1f6b46">
 
   <!-- Schrift -->
@@ -84,11 +88,16 @@
     /* Brand */
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
 
-    /* NEU: Logo im Header sauber (ohne abgerundete Ecken vom global img) */
+    /* >>> LOGO GRÖßER <<< */
     .brand img{
-      height:58px;
+      height:92px;     /* vorher 58px */
       width:auto;
-      border-radius:0;
+      border-radius:0; /* global img hat 14px, hier scharf lassen */
+      display:block;
+    }
+    /* Mobile: etwas kleiner, damit der Header nicht zu hoch wird */
+    @media(max-width:860px){
+      .brand img{ height:74px; }
     }
 
     /* Hamburger */
@@ -340,10 +349,10 @@
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
 
-    <!-- NUR neues Logo, altes komplett entfernt -->
+    <!-- Neues Logo -->
     <a class="brand logo" href="#home" aria-label="Startseite Arslan GmbH">
       <img
-        src="/logo.svg.png?v=5"
+        src="/logo.svg.png?v=6"
         alt="Arslan GmbH Logo"
         decoding="async"
         loading="eager"
@@ -589,7 +598,7 @@
 
         <hr style="border:none;border-top:1px solid var(--line);margin:10px 0 14px">
 
-        <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg,
+        <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, 
         Tel.: 06102-8688109, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>.
         Bei Kontaktaufnahme per E-Mail oder Formular verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage
         (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten
