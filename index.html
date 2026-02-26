@@ -17,8 +17,11 @@
 
   <link rel="canonical" href="https://arslan-gmbh.de">
 
-  <!-- Favicon (PNG-Datei /logo.svc.png im Repo) -->
-  <link rel="icon" href="/logo.svc.png" type="image/png">
+  <!-- Favicon (gleiches PNG wie Header-Logo) -->
+  <!-- Relativ + Fallback (falls Datei in /img/ liegt) + Cache-Buster -->
+  <link rel="icon" href="logo.svc.png?v=2" type="image/png">
+  <link rel="icon" href="img/logo.svc.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="logo.svc.png?v=2">
   <meta name="theme-color" content="#1f6b46">
 
   <!-- Schrift -->
@@ -79,28 +82,15 @@
       padding:12px var(--pad);
       display:flex;align-items:center;justify-content:space-between;gap:18px
     }
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
-    .namewrap{
-      display:flex;flex-direction:column;line-height:1.02;
-      align-items:center; /* Tagline mittig */
+
+    /* Brand: nur noch Bild */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+      min-width:0; /* wichtig: verhindert unnötige Breite */
     }
-    .wordmark{
-      font-weight:900;letter-spacing:.04em;
-      background:linear-gradient(180deg, #fff3c6 0%, #ead48a 40%, #caa24a 70%, #a3872e 100%);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-transform:uppercase;font-size:clamp(1.2rem,3vw,1.55rem);
-      display:inline-block;
-    }
-    .tagline{
-      margin-top:2px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
-      font-size:.68rem;
-      background:linear-gradient(180deg, #fff6cf 0%, #e9d79a 50%, #cbb272 100%);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-      align-self:center;text-align:center;white-space:nowrap;
-      max-width:100%;
-    }
-    .logo svg{filter:drop-shadow(0 14px 22px rgba(0,0,0,.18))}
-    .logo circle{opacity:.82}
 
     /* Hamburger */
     .menu-toggle{display:none;appearance:none;border:none;background:transparent;padding:10px;margin:-6px;border-radius:12px;cursor:pointer}
@@ -191,20 +181,18 @@
       .quick-cards{justify-items:center}
       .q-card{
         justify-self:center;
-        width:auto;              /* keine volle Breite */
-        max-width:96%;           /* schützt vor Überbreite */
-        padding:10px 12px;       /* schmaler */
+        width:auto;
+        max-width:96%;
+        padding:10px 12px;
         min-height:auto;
       }
       .q-icon{width:24px;height:24px;flex-basis:24px}
       .q-label{display:block;text-align:center}
-      /* SPEZIAL: „Gebäudereinigung & Objektbetreuung“ NICHT umbrechen,
-         damit der Button die Breite komplett füllt */
       .quick-cards a[href="#p-reinigung"]{
         max-width:100%;
       }
       .quick-cards a[href="#p-reinigung"] .q-label{
-        white-space:nowrap;      /* nicht umbrechen */
+        white-space:nowrap;
       }
     }
 
@@ -352,21 +340,17 @@
 <!-- Header -->
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
+    <!-- NUR neues Logo, altes komplett entfernt -->
     <a class="brand logo" href="#home" aria-label="Startseite Arslan GmbH">
-      <!-- Logo-Datei (gleichzeitig auch als Favicon genutzt) -->
       <img
-        src="/logo.svc.png"
-        width="58"
-        height="58"
-        alt="Arslan GmbH Logo"
+        src="logo.svc.png?v=2"
+        alt="Arslan GmbH"
         decoding="async"
         loading="eager"
-        style="border-radius:0"
+        fetchpriority="high"
+        style="height:58px;width:auto;border-radius:0"
+        onerror="this.onerror=null; this.src='img/logo.svc.png?v=2';"
       >
-      <div class="namewrap">
-        <div class="wordmark">Arslan GmbH</div>
-        <div class="tagline">- Meisterbetrieb -</div>
-      </div>
     </a>
 
     <!-- Hamburger Button -->
@@ -607,7 +591,7 @@
 
         <hr style="border:none;border-top:1px solid var(--line);margin:10px 0 14px">
 
-        <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg, 
+        <p><strong>Datenschutz:</strong> Verantwortlicher ist die Arslan GmbH, Werner-Heisenberg Str. 2, 63263 Neu-Isenburg,
         Tel.: 06102-8688109, E-Mail: <a href="mailto:arslangmbh@gmx.net">arslangmbh@gmx.net</a>.
         Bei Kontaktaufnahme per E-Mail oder Formular verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung der Anfrage
         (Art. 6 Abs. 1 lit. b DSGVO) und speichern sie nur so lange, wie es zur Bearbeitung oder aufgrund gesetzlicher Pflichten
