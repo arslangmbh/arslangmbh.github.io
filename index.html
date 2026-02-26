@@ -17,13 +17,18 @@
 
   <link rel="canonical" href="https://arslan-gmbh.de">
 
-  <!-- Favicon (gleiches Logo wie Header; Cache-Buster damit Browser wirklich neu lädt) -->
-  <link rel="icon" href="/logo.svg.png?v=6" type="image/png">
-  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="32x32">
-  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="48x48">
-  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="96x96">
-  <link rel="icon" href="/logo.svg.png?v=6" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/logo.svg.png?v=6" sizes="180x180">
+  <!-- Favicon (gleiches Logo; viele Größen + Cache-Buster) -->
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="16x16">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="32x32">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="48x48">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="64x64">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="96x96">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="128x128">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="192x192">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="256x256">
+  <link rel="icon" href="/logo.svg.png?v=7" type="image/png" sizes="512x512">
+  <link rel="shortcut icon" href="/logo.svg.png?v=7" type="image/png">
+  <link rel="apple-touch-icon" href="/logo.svg.png?v=7" sizes="180x180">
   <meta name="theme-color" content="#1f6b46">
 
   <!-- Schrift -->
@@ -88,16 +93,18 @@
     /* Brand */
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
 
-    /* >>> LOGO GRÖßER <<< */
+    /* >>> LOGO / ICON NOCH GRÖßER <<< */
     .brand img{
-      height:92px;     /* vorher 58px */
+      height:132px;     /* vorher 92px */
       width:auto;
-      border-radius:0; /* global img hat 14px, hier scharf lassen */
+      border-radius:0;  /* global img hat 14px, hier scharf lassen */
       display:block;
     }
-    /* Mobile: etwas kleiner, damit der Header nicht zu hoch wird */
     @media(max-width:860px){
-      .brand img{ height:74px; }
+      .brand img{ height:104px; }
+    }
+    @media(max-width:520px){
+      .brand img{ height:88px; }
     }
 
     /* Hamburger */
@@ -352,7 +359,7 @@
     <!-- Neues Logo -->
     <a class="brand logo" href="#home" aria-label="Startseite Arslan GmbH">
       <img
-        src="/logo.svg.png?v=6"
+        src="/logo.svg.png?v=7"
         alt="Arslan GmbH Logo"
         decoding="async"
         loading="eager"
