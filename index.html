@@ -17,11 +17,9 @@
 
   <link rel="canonical" href="https://arslan-gmbh.de">
 
-  <!-- Favicon (gleiches PNG wie Header-Logo) -->
-  <!-- Relativ + Fallback (falls Datei in /img/ liegt) + Cache-Buster -->
-  <link rel="icon" href="logo.svc.png?v=2" type="image/png">
-  <link rel="icon" href="img/logo.svc.png?v=2" type="image/png">
-  <link rel="apple-touch-icon" href="logo.svc.png?v=2">
+  <!-- Favicon (NEUES Logo als Favicon) -->
+  <link rel="icon" href="/logo.svg.png?v=5" type="image/png">
+  <link rel="apple-touch-icon" href="/logo.svg.png?v=5">
   <meta name="theme-color" content="#1f6b46">
 
   <!-- Schrift -->
@@ -83,13 +81,14 @@
       display:flex;align-items:center;justify-content:space-between;gap:18px
     }
 
-    /* Brand: nur noch Bild */
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      min-width:0; /* wichtig: verhindert unnötige Breite */
+    /* Brand */
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:240px}
+
+    /* NEU: Logo im Header sauber (ohne abgerundete Ecken vom global img) */
+    .brand img{
+      height:58px;
+      width:auto;
+      border-radius:0;
     }
 
     /* Hamburger */
@@ -340,16 +339,15 @@
 <!-- Header -->
 <header>
   <nav class="nav" aria-label="Hauptnavigation">
+
     <!-- NUR neues Logo, altes komplett entfernt -->
     <a class="brand logo" href="#home" aria-label="Startseite Arslan GmbH">
       <img
-        src="logo.svc.png?v=2"
-        alt="Arslan GmbH"
+        src="/logo.svg.png?v=5"
+        alt="Arslan GmbH Logo"
         decoding="async"
         loading="eager"
         fetchpriority="high"
-        style="height:58px;width:auto;border-radius:0"
-        onerror="this.onerror=null; this.src='img/logo.svc.png?v=2';"
       >
     </a>
 
